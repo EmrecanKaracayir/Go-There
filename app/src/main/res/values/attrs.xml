@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="GT_colorAccent" format="reference|color" />
+    <attr name="GT_colorAccentDarker" format="reference|color" />
+    <attr name="GT_colorAccentDisabled" format="reference|color" />
+    <attr name="GT_colorAccentContainerDisabled" format="reference|color" />
+    <attr name="GT_colorAccentAlphaLayer" format="reference|color" />
+    <attr name="GT_colorAccentAlphaLayerDisabled" format="reference|color" />
+
+    <attr name="GT_colorFundamentalTransparent" format="reference|color" />
+    <attr name="GT_colorFundamentalLowContrast" format="reference|color" />
+    <attr name="GT_colorFundamentalLowContrastAlpha" format="reference|color" />
+    <attr name="GT_colorFundamentalHighContrast" format="reference|color" />
+    <attr name="GT_colorFundamentalHighContrastDisabled" format="reference|color" />
+    <attr name="GT_colorFundamentalHighContrastAlpha" format="reference|color" />
+
+    <attr name="GT_colorLayoutBackground" format="reference|color" />
+    <attr name="GT_colorLayoutSurface" format="reference|color" />
+    <attr name="GT_colorLayoutAlphaLayer" format="reference|color" />
+    <attr name="GT_colorLayoutAlphaLayerDisabled" format="reference|color" />
+    <attr name="GT_colorLayoutBlendLayer" format="reference|color" />
+    <attr name="GT_colorLayoutGeneralStroke" format="reference|color" />
+    <attr name="GT_colorLayoutBlurLuminosityLayer" format="reference|color" />
+    <attr name="GT_colorLayoutBlurColorLayer" format="reference|color" />
+
+    <attr name="GT_colorError" format="reference|color" />
+    <attr name="GT_colorSuccess" format="reference|color" />
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacingNone">0dp</dimen>
+    <dimen name="spacing3XS">4dp</dimen>
+    <dimen name="spacing2XS">8dp</dimen>
+    <dimen name="spacing1XS">16dp</dimen>
+    <dimen name="spacingSmall">24dp</dimen>
+    <dimen name="spacingMedium">32dp</dimen>
+    <dimen name="spacingLarge">40dp</dimen>
+    <dimen name="spacing1XL">48dp</dimen>
+    <dimen name="spacing2XL">56dp</dimen>
+    <dimen name="spacing3XL">64dp</dimen>
+    <dimen name="spacing4XL">96dp</dimen>
+
+    <dimen name="spacingMaxWidth">600dp</dimen>
+    <dimen name="spacingScreenBottom">@dimen/spacing3XS</dimen>
+
+    <dimen name="screenSpacingSys">@dimen/spacing2XS</dimen>
+    <dimen name="headLineSpacingSys">@dimen/spacing2XS</dimen>
+    <dimen name="sectionSpacingSys">@dimen/spacing2XS</dimen>
+    <dimen name="itemSpacingSys">@dimen/spacing3XS</dimen>
+    <dimen name="innerSpacingSys">@dimen/spacing3XS</dimen>
+</resources>

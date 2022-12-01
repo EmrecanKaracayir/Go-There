@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Disabled -->
+    <item android:color="?GT_colorFundamentalHighContrastDisabled" android:state_enabled="false" />
+    <!-- Checked Buttons. -->
+    <item android:color="?GT_colorFundamentalHighContrast" android:state_checked="true" />
+    <!-- Not-checked Buttons. -->
+    <item android:color="?GT_colorFundamentalHighContrast" />
+</selector>

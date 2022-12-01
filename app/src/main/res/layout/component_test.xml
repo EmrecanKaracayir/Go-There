@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?GT_colorLayoutBackground"
+    android:orientation="vertical"
+    tools:context=".activity.BaseActivity">
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/GT_Button.Default.Filled.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/GT_Button.Default.Tinted.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/GT_Button.Default.Gray.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/GT_Button.Default.Label.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/GT_Button.Oval.Filled.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/button7"
+            style="@style/GT_Button.Oval.Gray.Mid"
+            android:layout_width="wrap_content"
+            android:text="Placeholder"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/GT_TextField.Outlined.Mid"
+            android:id="@+id/usernameInputLayout2"
+            android:layout_width="match_parent"
+            android:hint="Placeholder"
+            android:layout_height="wrap_content" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/GT_EditText.Mid"
+                    android:id="@+id/usernameEditText2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/GT_TextField.Filled.Mid"
+            android:id="@+id/usernameInputLayout"
+            android:layout_width="match_parent"
+            android:hint="Placeholder"
+            android:layout_height="wrap_content" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/GT_EditText.Mid"
+                    android:id="@+id/usernameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

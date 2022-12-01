@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hero_image_content_description">Kapak görseli</string>
+    <string name="slogan_subtitle">Zaman geçirmek için en iyi yeri bul!</string>
+    <string name="join_us_signUp_screen_headline">Bize Katıl</string>
+    <string name="introduce_yourself_signUp_screen_subtitle">Kendini tanıt</string>
+    <string name="welcome_widget_title">Hoş Geldin</string>
+    <string name="personal_information_widget_title">Kişisel bilgiler</string>
+    <string name="identity_information_widget_title">Tanılayıcı bilgiler</string>
+    <string name="security_information_widget_title">Güvenlik bilgileri</string>
+    <string name="name_textField_hint">Ad</string>
+    <string name="surname_textField_hint">Soyad</string>
+    <string name="username_textField_hint">Kullanıcı Adı</string>
+    <string name="email_textField_hint">E-posta</string>
+    <string name="password_textField_hint">Parola</string>
+    <string name="confirm_password_textField_hint">Onay Parolası</string>
+    <string name="terms_and_conditions_full">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</string>
+    <string name="signUp_button">Kayıt ol</string>
+    <string name="login_button">Giriş yap</string>
+    <string name="terms_and_conditions_dialog_decline_button">Reddet</string>
+    <string name="terms_and_conditions_dialog_accept_button">Kabul et</string>
+    <string name="back_button">Geri</string>
+    <string name="terms_and_conditions_button">Kullanıcı Sözleşmesi</string>
+    <string name="terms_and_conditions_dialog_title">Kullanıcı Sözleşmesi</string>
+    <string name="login_error_wrong_credentials">Hatalı \"Kullanıcı Adı\"  veya \"Parola\".</string>
+    <string name="signUp_error_username_taken">\"Kullanıcı Adı\" daha önce alınmış.</string>
+    <string name="signUp_error_email_taken">\"E-Posta\" daha önce alınmış.</string>
+    <string name="signUp_error_short_password">\"Parola\" olması gerekenden kısa.</string>
+    <string name="signUp_error_passwords_do_not_match">Parolalar eşleşmiyor.</string>
+    <string name="uncategorized_error">[DEV] - Kategorize edilmemiş hata ile karşılaşıldı.</string>
+    <string name="signUp_error_email_format">\"E-posta\" doğru formatta değil.</string>
+    <string name="checkbox_terms_conditions_accept">Kabul ediyorum.</string>
+    <string name="signUp_error_must_accept_terms_conditions">Kullanıcı Sözleşmesi\'ni kabul etmelisin.</string>
+    <string name="password_textField_helper">Parolaz en az 8 karakter olmalı.</string>
+</resources>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ? TYPOGRAPHY -->
+    <style name="GT_Typography.DO_NOT_USE" parent="">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="GT_Typography.Regular.Small.Caption.DO_NOT_USE" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">12dp</item>
+    </style>
+
+
+    <style name="GT_Typography.Regular.Caption.Min" parent="GT_Typography.Regular.Small.Caption.DO_NOT_USE" />
+
+    <style name="GT_Typography.Regular.Caption.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">-0.025</item>
+        <item name="android:lineHeight">14dp</item>
+    </style>
+
+    <style name="GT_Typography.Regular.Caption.Max" parent="GT_Typography.Regular.Large.Caption.Mid" />
+
+
+    <style name="GT_Typography.Regular.Large.Caption.Min" parent="GT_Typography.Regular.Caption.Mid" />
+
+    <style name="GT_Typography.Regular.Large.Caption.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">16dp</item>
+    </style>
+
+    <style name="GT_Typography.Regular.Large.Caption.Max" parent="GT_Typography.Medium.Body.Mid" />
+
+
+    <style name="GT_Typography.Medium.Body.Min" parent="GT_Typography.Regular.Large.Caption.Mid" />
+
+    <style name="GT_Typography.Medium.Body.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+    <style name="GT_Typography.Medium.Body.Max" parent="GT_Typography.Medium.Large.Body.Mid" />
+
+
+    <style name="GT_Typography.Medium.Large.Body.Min" parent="GT_Typography.Medium.Body.Mid" />
+
+    <style name="GT_Typography.Medium.Large.Body.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">22dp</item>
+    </style>
+
+    <style name="GT_Typography.Medium.Large.Body.Max" parent="GT_Typography.SemiBold.Subtitle.Mid" />
+
+
+    <style name="GT_Typography.SemiBold.Subtitle.Min" parent="GT_Typography.Medium.Large.Body.Mid" />
+
+    <style name="GT_Typography.SemiBold.Subtitle.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">24dp</item>
+    </style>
+
+    <style name="GT_Typography.SemiBold.Subtitle.Max" parent="GT_Typography.SemiBold.Large.Subtitle.Mid" />
+
+
+    <style name="GT_Typography.SemiBold.Large.Subtitle.Min" parent="GT_Typography.SemiBold.Subtitle.Mid" />
+
+    <style name="GT_Typography.SemiBold.Large.Subtitle.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">26dp</item>
+    </style>
+
+    <style name="GT_Typography.SemiBold.Large.Subtitle.Max" parent="GT_Typography.Bold.Title.Mid" />
+
+
+    <style name="GT_Typography.Bold.Title.Min" parent="GT_Typography.SemiBold.Large.Subtitle.Mid" />
+
+    <style name="GT_Typography.Bold.Title.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">28dp</item>
+    </style>
+
+    <style name="GT_Typography.Bold.Title.Max" parent="GT_Typography.Bold.Large.Title.Mid" />
+
+
+    <style name="GT_Typography.Bold.Large.Title.Min" parent="GT_Typography.Bold.Title.Mid" />
+
+    <style name="GT_Typography.Bold.Large.Title.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:lineHeight">32dp</item>
+    </style>
+
+    <style name="GT_Typography.Bold.Large.Title.Max" parent="GT_Typography.ExtraBold.Headline.Mid" />
+
+
+    <style name="GT_Typography.ExtraBold.Headline.Min" parent="GT_Typography.Bold.Large.Title.Mid" />
+
+    <style name="GT_Typography.ExtraBold.Headline.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:lineHeight">38dp</item>
+    </style>
+
+    <style name="GT_Typography.ExtraBold.Headline.Max" parent="GT_Typography.ExtraBold.Large.Headline.Mid" />
+
+
+
+    <style name="GT_Typography.ExtraBold.Large.Headline.Min" parent="GT_Typography.ExtraBold.Headline.Mid" />
+
+    <style name="GT_Typography.ExtraBold.Large.Headline.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_extrabold</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineHeight">42dp</item>
+    </style>
+
+    <style name="GT_Typography.ExtraBold.Large.Headline.Max" parent="GT_Typography.Black.ArtisticHeadline.Mid" />
+
+
+
+    <style name="GT_Typography.Black.ArtisticHeadline.Min" parent="GT_Typography.ExtraBold.Large.Headline.Mid" />
+
+    <style name="GT_Typography.Black.ArtisticHeadline.Mid" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_black</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineHeight">54dp</item>
+    </style>
+
+    <style name="GT_Typography.Black.ArtisticHeadline.Max" parent="GT_Typography.Black.Large.ArtisticHeadline.DO_NOT_USE" />
+
+
+    <style name="GT_Typography.Black.Large.ArtisticHeadline.DO_NOT_USE" parent="GT_Typography.DO_NOT_USE">
+        <item name="android:fontFamily">@font/inter_black</item>
+        <item name="android:textSize">52sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineHeight">58dp</item>
+    </style>
+
+
+    <!-- ? BUTTONS -->
+    <style name="GT_Button.Default.DO_NOT_USE" parent="Widget.Material3.Button.UnelevatedButton">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/spacing1XL</item>
+        <item name="android:insetTop">@dimen/spacingNone</item>
+        <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:paddingLeft">@dimen/spacingNone</item>
+        <item name="android:paddingRight">@dimen/spacingNone</item>
+        <item name="android:paddingStart">@dimen/spacing1XS</item>
+        <item name="android:paddingTop">@dimen/spacingNone</item>
+        <item name="android:paddingEnd">@dimen/spacing1XS</item>
+        <item name="android:paddingBottom">@dimen/spacingNone</item>
+        <item name="cornerRadius">@dimen/spacing2XS</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/spacing2XS</item>
+        <item name="iconSize">@dimen/spacing1XS</item>
+    </style>
+
+
+    <style name="GT_Button.Default.Filled.Min" parent="GT_Button.Default.Filled.Mid">
+        <item name="android:layout_height">@dimen/spacingLarge</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Default.Filled.Mid" parent="GT_Button.Default.DO_NOT_USE">
+        <item name="android:textColor">@color/button_filled_fg_color</item>
+        <item name="backgroundTint">@color/button_filled_bg_color</item>
+        <item name="rippleColor">?GT_colorFundamentalHighContrastAlpha</item>
+        <item name="iconTint">?GT_colorFundamentalHighContrast</item>
+    </style>
+
+    <style name="GT_Button.Default.Filled.Max" parent="GT_Button.Default.Filled.Mid">
+        <item name="android:layout_height">@dimen/spacing2XL</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_Button.Default.Tinted.Min" parent="GT_Button.Default.Tinted.Mid">
+        <item name="android:layout_height">@dimen/spacingLarge</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Default.Tinted.Mid" parent="GT_Button.Default.DO_NOT_USE">
+        <item name="android:textColor">@color/button_tinted_fg_color</item>
+        <item name="backgroundTint">@color/button_tinted_bg_color</item>
+        <item name="rippleColor">?GT_colorAccent</item>
+        <item name="iconTint">?GT_colorAccent</item>
+    </style>
+
+    <style name="GT_Button.Default.Tinted.Max" parent="GT_Button.Default.Tinted.Mid">
+        <item name="android:layout_height">@dimen/spacing2XL</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_Button.Default.Gray.Min" parent="GT_Button.Default.Gray.Mid">
+        <item name="android:layout_height">@dimen/spacingLarge</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Default.Gray.Mid" parent="GT_Button.Default.DO_NOT_USE">
+        <item name="android:textColor">@color/button_gray_fg_color</item>
+        <item name="backgroundTint">@color/button_gray_bg_color</item>
+        <item name="rippleColor">?GT_colorAccent</item>
+        <item name="iconTint">?GT_colorAccent</item>
+    </style>
+
+    <style name="GT_Button.Default.Gray.Max" parent="GT_Button.Default.Gray.Mid">
+        <item name="android:layout_height">@dimen/spacing2XL</item>
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_Button.Default.Label.Min" parent="GT_Button.Default.Label.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Default.Label.Mid" parent="GT_Button.Default.DO_NOT_USE">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/spacing2XS</item>
+        <item name="android:paddingTop">@dimen/spacingNone</item>
+        <item name="android:paddingEnd">@dimen/spacing2XS</item>
+        <item name="android:paddingBottom">@dimen/spacingNone</item>
+        <item name="android:textColor">@color/button_label_fg_color</item>
+        <item name="backgroundTint">?GT_colorFundamentalTransparent</item>
+        <item name="rippleColor">?GT_colorAccent</item>
+        <item name="iconTint">?GT_colorAccent</item>
+    </style>
+
+    <style name="GT_Button.Default.Label.Max" parent="GT_Button.Default.Label.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_Button.Oval.DO_NOT_USE" parent="Widget.Material3.Button">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/spacingMedium</item>
+        <item name="android:insetTop">@dimen/spacingNone</item>
+        <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:paddingLeft">@dimen/spacingNone</item>
+        <item name="android:paddingRight">@dimen/spacingNone</item>
+        <item name="android:paddingStart">@dimen/spacingSmall</item>
+        <item name="android:paddingTop">@dimen/spacingNone</item>
+        <item name="android:paddingEnd">@dimen/spacingSmall</item>
+        <item name="android:paddingBottom">@dimen/spacingNone</item>
+        <item name="cornerRadius">@dimen/spacing1XS</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/spacing2XS</item>
+        <item name="iconSize">@dimen/spacing1XS</item>
+    </style>
+
+
+    <style name="GT_Button.Oval.Filled.Min" parent="GT_Button.Oval.Filled.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Oval.Filled.Mid" parent="GT_Button.Oval.DO_NOT_USE">
+        <item name="android:textColor">?GT_colorAccent</item>
+        <item name="backgroundTint">?GT_colorFundamentalHighContrast</item>
+        <item name="rippleColor">?GT_colorAccent</item>
+        <item name="iconTint">?GT_colorAccent</item>
+    </style>
+
+    <style name="GT_Button.Oval.Filled.Max" parent="GT_Button.Oval.Filled.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_Button.Oval.Gray.Min" parent="GT_Button.Oval.Gray.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Button.Oval.Gray.Mid" parent="GT_Button.Oval.DO_NOT_USE">
+        <item name="android:textColor">?GT_colorAccent</item>
+        <item name="backgroundTint">?GT_colorLayoutAlphaLayer</item>
+        <item name="rippleColor">?GT_colorAccent</item>
+        <item name="iconTint">?GT_colorAccent</item>
+    </style>
+
+    <style name="GT_Button.Oval.Gray.Max" parent="GT_Button.Oval.Gray.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <!-- ? TEXT FIELDS -->
+    <style name="GT_EditText.Min" parent="GT_EditText.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_EditText.Mid" parent="ThemeOverlay.Material3.TextInputEditText">
+        <!-- INPUT TEXT -->
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="android:textColor">?GT_colorFundamentalHighContrast</item>
+        <item name="colorControlActivated">?GT_colorAccent</item>
+        <item name="android:textColorHighlight">?GT_colorAccentAlphaLayer</item>
+    </style>
+
+    <style name="GT_EditText.Max" parent="GT_EditText.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_TextField.Outlined.Min" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <!-- LABEL -->
+        <item name="hintTextColor">?GT_colorAccent</item>
+        <item name="android:textColorHint">@color/text_field_text_color_hint</item>
+        <item name="hintTextAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+        <!-- CONTAINER -->
+        <item name="boxCornerRadiusTopStart">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/spacing2XS</item>
+        <item name="boxStrokeColor">@color/text_field_box_stroke_color</item>
+        <item name="boxStrokeErrorColor">?GT_colorError</item>
+        <!-- LEADING ICON -->
+        <item name="startIconTint">@color/text_field_icon_color</item>
+        <!-- TRAILING ICON -->
+        <item name="endIconTint">@color/text_field_icon_color</item>
+        <item name="errorIconTint">?GT_colorError</item>
+        <!-- SUPPORTING TEXT -->
+        <item name="helperTextTextAppearance">@style/GT_Typography.Regular.Caption.Min</item>
+        <item name="errorTextAppearance">@style/GT_Typography.Regular.Caption.Min</item>
+        <item name="counterTextAppearance">@style/GT_Typography.Regular.Caption.Min</item>
+        <item name="counterOverflowTextAppearance">@style/GT_Typography.Regular.Caption.Min</item>
+        <item name="helperTextTextColor">?GT_colorFundamentalHighContrastAlpha</item>
+        <item name="errorTextColor">?GT_colorError</item>
+        <item name="counterOverflowTextColor">?GT_colorError</item>
+        <!-- PREFIX/SUFFIX TEXT -->
+        <item name="prefixTextAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+        <item name="suffixTextAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+        <item name="prefixTextColor">@color/text_field_icon_color</item>
+        <item name="suffixTextColor">@color/text_field_icon_color</item>
+    </style>
+
+    <style name="GT_TextField.Outlined.Mid" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <!-- LABEL -->
+        <item name="hintTextColor">?GT_colorAccent</item>
+        <item name="android:textColorHint">@color/text_field_text_color_hint</item>
+        <item name="hintTextAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <!-- CONTAINER -->
+        <item name="boxCornerRadiusTopStart">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/spacing2XS</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/spacing2XS</item>
+        <item name="boxStrokeColor">@color/text_field_box_stroke_color</item>
+        <item name="boxStrokeErrorColor">?GT_colorError</item>
+        <!-- LEADING ICON -->
+        <item name="startIconTint">@color/text_field_icon_color</item>
+        <!-- TRAILING ICON -->
+        <item name="endIconTint">@color/text_field_icon_color</item>
+        <item name="errorIconTint">?GT_colorError</item>
+        <!-- SUPPORTING TEXT -->
+        <item name="helperTextTextAppearance">@style/GT_Typography.Regular.Caption.Mid</item>
+        <item name="errorTextAppearance">@style/GT_Typography.Regular.Caption.Mid</item>
+        <item name="counterTextAppearance">@style/GT_Typography.Regular.Caption.Mid</item>
+        <item name="counterOverflowTextAppearance">@style/GT_Typography.Regular.Caption.Mid</item>
+        <item name="helperTextTextColor">?GT_colorFundamentalHighContrastAlpha</item>
+        <item name="errorTextColor">?GT_colorError</item>
+        <item name="counterOverflowTextColor">?GT_colorError</item>
+        <!-- PREFIX/SUFFIX TEXT -->
+        <item name="prefixTextAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="suffixTextAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="prefixTextColor">@color/text_field_icon_color</item>
+        <item name="suffixTextColor">@color/text_field_icon_color</item>
+    </style>
+
+    <style name="GT_TextField.Outlined.Max" parent="GT_TextField.Outlined.Mid">
+        <!-- LABEL -->
+        <item name="hintTextAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+        <!-- SUPPORTING TEXT -->
+        <item name="helperTextTextAppearance">@style/GT_Typography.Regular.Caption.Max</item>
+        <item name="errorTextAppearance">@style/GT_Typography.Regular.Caption.Max</item>
+        <item name="counterTextAppearance">@style/GT_Typography.Regular.Caption.Max</item>
+        <item name="counterOverflowTextAppearance">@style/GT_Typography.Regular.Caption.Max</item>
+        <!-- PREFIX/SUFFIX TEXT -->
+        <item name="prefixTextAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+        <item name="suffixTextAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+
+    <style name="GT_TextField.Filled.Min" parent="GT_TextField.Outlined.Min">
+        <!-- BACKGROUND FILL -->
+        <item name="boxBackgroundColor">?GT_colorLayoutSurface</item>
+    </style>
+
+    <style name="GT_TextField.Filled.Mid" parent="GT_TextField.Outlined.Mid">
+        <!-- BACKGROUND FILL -->
+        <item name="boxBackgroundColor">?GT_colorLayoutSurface</item>
+    </style>
+
+    <style name="GT_TextField.Filled.Max" parent="GT_TextField.Outlined.Max">
+        <!-- BACKGROUND FILL -->
+        <item name="boxBackgroundColor">?GT_colorLayoutSurface</item>
+    </style>
+
+
+    <!-- ? CARDS -->
+    <style name="GT_Card.Surface.NoSize" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">?GT_colorLayoutSurface</item>
+        <item name="cornerRadius">@dimen/spacing2XS</item>
+    </style>
+
+
+    <!-- ? CHECKBOXES -->
+    <style name="GT_Checkbox.Min" parent="GT_Checkbox.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Min</item>
+    </style>
+
+    <style name="GT_Checkbox.Mid" parent="Widget.Material3.CompoundButton.CheckBox">
+        <!-- LABEL -->
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="android:textColor">?GT_colorFundamentalHighContrast</item>
+        <!-- BUTTON -->
+        <item name="buttonTint">@color/checkbox_button_tint</item>
+    </style>
+
+    <style name="GT_Checkbox.Max" parent="GT_Checkbox.Mid">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Max</item>
+    </style>
+
+</resources>

@@ -1,0 +1,91 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_gt_theme_accent</item>
+
+        <item name="GT_colorAccent">@color/dark_gt_theme_accent</item>
+        <item name="GT_colorAccentDarker">@color/dark_gt_theme_accent_darker</item>
+        <item name="GT_colorAccentDisabled">@color/dark_gt_theme_accent_disabled</item>
+        <item name="GT_colorAccentContainerDisabled">
+            @color/dark_gt_theme_accent_container_disabled
+        </item>
+        <item name="GT_colorAccentAlphaLayer">@color/dark_gt_theme_accent_alpha_layer</item>
+        <item name="GT_colorAccentAlphaLayerDisabled">
+            @color/dark_gt_theme_accent_alpha_layer_disabled
+        </item>
+
+        <item name="GT_colorFundamentalTransparent">@color/union_gt_theme_transparent</item>
+        <item name="GT_colorFundamentalLowContrast">@color/dark_gt_theme_fundamental_low_contrast
+        </item>
+        <item name="GT_colorFundamentalLowContrastAlpha">
+            @color/dark_gt_theme_fundamental_low_contrast_alpha
+        </item>
+        <item name="GT_colorFundamentalHighContrast">
+            @color/dark_gt_theme_fundamental_high_contrast
+        </item>
+        <item name="GT_colorFundamentalHighContrastDisabled">
+            @color/dark_gt_theme_fundamental_high_contrast_disabled
+        </item>
+        <item name="GT_colorFundamentalHighContrastAlpha">
+            @color/dark_gt_theme_fundamental_high_contrast_alpha
+        </item>
+
+        <item name="GT_colorLayoutBackground">@color/dark_gt_theme_layout_background</item>
+        <item name="GT_colorLayoutSurface">@color/dark_gt_theme_layout_surface</item>
+        <item name="GT_colorLayoutAlphaLayer">@color/dark_gt_theme_layout_alpha_layer</item>
+        <item name="GT_colorLayoutAlphaLayerDisabled">
+            @color/dark_gt_theme_layout_alpha_layer_disabled
+        </item>
+        <item name="GT_colorLayoutBlendLayer">@color/dark_gt_theme_layout_blend_layer</item>
+        <item name="GT_colorLayoutGeneralStroke">@color/dark_gt_theme_layout_general_stroke</item>
+        <item name="GT_colorLayoutBlurLuminosityLayer">@color/dark_gt_theme_layout_general_blur_luminosity_layer</item>
+        <item name="GT_colorLayoutBlurColorLayer">@color/dark_gt_theme_layout_general_blur_color_layer</item>
+
+        <item name="GT_colorError">@color/dark_gt_theme_dark_error</item>
+        <item name="GT_colorSuccess">@color/dark_gt_theme_dark_success</item>
+
+        <item name="materialAlertDialogTheme">@style/GT_ThemeOverlay.App.MaterialAlertDialog</item>
+
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- ? DIALOGS -->
+    <style name="GT_MaterialAlertDialog.App" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearance">@style/GT_ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceOverlay">@null</item>
+    </style>
+
+    <style name="GT_ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="GT_MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAppearance">@style/GT_Typography.ExtraBold.Headline.Mid</item>
+        <item name="android:textColor">?GT_colorFundamentalHighContrast</item>
+    </style>
+
+    <style name="GT_MaterialAlertDialog.App.Body.Text" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body.Mid</item>
+        <item name="android:textColor">?GT_colorFundamentalHighContrastAlpha</item>
+    </style>
+
+    <style name="GT_Widget.App.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?GT_colorFundamentalHighContrast</item>
+    </style>
+
+    <style name="GT_ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="colorSurface">?GT_colorAccentDarker</item>
+        <item name="alertDialogStyle">@style/GT_MaterialAlertDialog.App</item>
+        <item name="materialAlertDialogTitleTextStyle">
+            @style/GT_MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="materialAlertDialogBodyTextStyle">@style/GT_MaterialAlertDialog.App.Body.Text
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/GT_Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/GT_Widget.App.Button</item>
+    </style>
+
+</resources>
