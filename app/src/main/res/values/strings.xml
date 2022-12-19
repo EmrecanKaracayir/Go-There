@@ -18,7 +18,7 @@
     <string name="username_textField_hint">Username</string>
     <string name="email_textField_hint">Email</string>
     <string name="password_textField_hint">Password</string>
-    <string name="password_textField_helper">Password must be at least 8 characters long.</string>
+    <string name="password_textField_helper">\"Password\" must be at least 8 chars long.</string>
     <string name="confirm_password_textField_hint">Confirm Password</string>
 
     <string name="signUp_button">Sign up</string>
@@ -40,7 +40,8 @@
     <string name="signUp_error_passwords_do_not_match">Passwords don\'t match.</string>
     <string name="signUp_error_must_accept_terms_conditions">You must accept \"Terms and Conditions\".</string>
     <string name="uncategorized_error">[DEV] - An uncategorized error occurred!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="explore">Explore</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="business">Business</string>
 </resources>

@@ -31,5 +31,9 @@
     <string name="signUp_error_email_format">\"E-posta\" doğru formatta değil.</string>
     <string name="checkbox_terms_conditions_accept">Kabul ediyorum.</string>
     <string name="signUp_error_must_accept_terms_conditions">Kullanıcı Sözleşmesi\'ni kabul etmelisin.</string>
-    <string name="password_textField_helper">Parolaz en az 8 karakter olmalı.</string>
+    <string name="password_textField_helper">\"Parola\" en az 8 karakter olmalı.</string>
+    <string name="explore">Keşfet</string>
+    <string name="search">Ara</string>
+    <string name="profile">Profil</string>
+    <string name="business">İşletme</string>
 </resources>

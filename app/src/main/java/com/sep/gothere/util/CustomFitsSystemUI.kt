@@ -3,16 +3,15 @@ package com.sep.gothere.util
 import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.sep.gothere.activity.BaseFragment
 
-class CustomFitsSystemUI(private val fragment: BaseFragment) {
+class CustomFitsSystemUI() {
 
     enum class RequestedInset {
         START, TOP, END, BOTTOM
     }
 
     fun fitsSystemUI(view: View, requestedInsets: List<RequestedInset>) {
-        val isLTR = ViewCompat.getLayoutDirection(fragment.requireView()) == ViewCompat.LAYOUT_DIRECTION_LTR
+        val isLTR = ViewCompat.getLayoutDirection(view) == ViewCompat.LAYOUT_DIRECTION_LTR
 
         val paddingStart = view.paddingStart
         val paddingTop = view.paddingTop

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?GT_colorAccent"
-    tools:context=".features.explore.ui.ExploreFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/GT_compBase"
+    tools:context=".features.root_postlog.explore.branch_explore.ui.ExploreFragment">
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Explore Fragment" />
+</androidx.constraintlayout.widget.ConstraintLayout>

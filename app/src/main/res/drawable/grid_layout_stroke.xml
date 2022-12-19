@@ -8,6 +8,6 @@
         android:topRightRadius="@dimen/spacing1XS" />
 
     <stroke
-        android:color="?GT_colorLayoutGeneralStroke"
+        android:color="?attr/GT_compStroke"
         android:width="1dp" />
 </shape>
