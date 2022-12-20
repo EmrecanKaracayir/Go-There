@@ -20,6 +20,7 @@ class ExploreFragment : BaseFragment(R.layout.fragment_explore), NavigationInfoP
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_EXPLORE
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_EXPLORE_FRAGMENT
     override fun isNavigationBranchOwner() = true
     override fun cacheOnBackPressed() = true
 }

@@ -14,7 +14,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.WindowCompat
-import androidx.core.view.postDelayed
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.google.android.material.color.MaterialColors
@@ -176,8 +175,8 @@ class BaseActivity : AppCompatActivity() {
         navigateToPrevious(supportFragmentManager)
     }
 
-    fun fragmentRequested(navigationTAG: NavigationTAG, animate: Boolean) {
-        navigateToNext(supportFragmentManager, navigationTAG, animate)
+    fun fragmentRequested(navigationTag: NavigationInfoProvider.NavigationTag, animate: Boolean) {
+        navigateToTag(supportFragmentManager, navigationTag, animate)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -195,5 +194,10 @@ class BaseActivity : AppCompatActivity() {
             }
         }
         return super.dispatchTouchEvent(event)
+    }
+
+    override fun onStop() {
+        saveLocationIndex(supportFragmentManager)
+        super.onStop()
     }
 }

@@ -20,6 +20,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile), NavigationInfoP
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_PROFILE
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_PROFILE_FRAGMENT
     override fun isNavigationBranchOwner() = true
     override fun cacheOnBackPressed() = true
 }

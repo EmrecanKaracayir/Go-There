@@ -6,6 +6,8 @@ interface NavigationInfoProvider {
 
     fun getNavigationBranch(): NavigationBranch
 
+    fun getNavigationTag(): NavigationTag
+
     fun isNavigationBranchOwner(): Boolean
 
     fun cacheOnBackPressed(): Boolean
@@ -21,5 +23,14 @@ interface NavigationInfoProvider {
         BRANCH_SEARCH(NavigationRoot.ROOT_POSTLOG),
         BRANCH_PROFILE(NavigationRoot.ROOT_POSTLOG),
         BRANCH_BUSINESS(NavigationRoot.ROOT_POSTLOG)
+    }
+
+    enum class NavigationTag(val branch: NavigationBranch) {
+        TAG_WELCOME_FRAGMENT(NavigationBranch.BRANCH_WELCOME),
+        TAG_SIGN_UP_FRAGMENT(NavigationBranch.BRANCH_WELCOME),
+        TAG_EXPLORE_FRAGMENT(NavigationBranch.BRANCH_EXPLORE),
+        TAG_SEARCH_FRAGMENT(NavigationBranch.BRANCH_SEARCH),
+        TAG_PROFILE_FRAGMENT(NavigationBranch.BRANCH_PROFILE),
+        TAG_BUSINESS_FRAGMENT(NavigationBranch.BRANCH_BUSINESS)
     }
 }

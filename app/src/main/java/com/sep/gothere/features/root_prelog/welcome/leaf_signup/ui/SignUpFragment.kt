@@ -462,6 +462,7 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_PRELOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_WELCOME
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_SIGN_UP_FRAGMENT
     override fun isNavigationBranchOwner() = false
     override fun cacheOnBackPressed() = false
 }

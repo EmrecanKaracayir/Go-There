@@ -20,6 +20,7 @@ class BusinessFragment : BaseFragment(R.layout.fragment_business), NavigationInf
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_BUSINESS
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_BUSINESS_FRAGMENT
     override fun isNavigationBranchOwner() = true
     override fun cacheOnBackPressed() = true
 }

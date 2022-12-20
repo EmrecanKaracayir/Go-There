@@ -17,7 +17,6 @@ import com.sep.gothere.helpers.color.FeatureStylizer
 import com.sep.gothere.features.root_prelog.welcome.branch_welcome.vm.WelcomeViewModel
 import com.sep.gothere.helpers.color.HSL
 import com.sep.gothere.navigation.NavigationInfoProvider
-import com.sep.gothere.navigation.NavigationTAG
 import com.sep.gothere.util.CustomFitsSystemUI
 import com.sep.gothere.util.exhaustive
 import com.sep.gothere.util.showSnackbar
@@ -86,7 +85,7 @@ class WelcomeFragment : BaseFragment(R.layout.fragment_welcome), NavigationInfoP
 
             signUpButton.setOnClickListener {
                 hideKeyboard()
-                (activity as BaseActivity).fragmentRequested(NavigationTAG.TAG_SIGN_UP_FRAGMENT, true)
+                (activity as BaseActivity).fragmentRequested(NavigationInfoProvider.NavigationTag.TAG_SIGN_UP_FRAGMENT, true)
             }
 
             loginButton.setOnClickListener {
@@ -136,6 +135,7 @@ class WelcomeFragment : BaseFragment(R.layout.fragment_welcome), NavigationInfoP
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_PRELOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_WELCOME
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_WELCOME_FRAGMENT
     override fun isNavigationBranchOwner() = true
     override fun cacheOnBackPressed() = true
 }

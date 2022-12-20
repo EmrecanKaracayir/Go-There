@@ -20,6 +20,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search), NavigationInfoPro
 
     override fun getNavigationRoot() = NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG
     override fun getNavigationBranch() = NavigationInfoProvider.NavigationBranch.BRANCH_SEARCH
+    override fun getNavigationTag() = NavigationInfoProvider.NavigationTag.TAG_SEARCH_FRAGMENT
     override fun isNavigationBranchOwner() = true
     override fun cacheOnBackPressed() = true
 }
