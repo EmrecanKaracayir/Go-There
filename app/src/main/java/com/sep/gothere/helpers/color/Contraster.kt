@@ -13,7 +13,6 @@ class Contraster() {
     companion object {
         private val commonColorUtils = CommonColorUtils()
 
-        @ColorInt
         fun getAccentColors(hslAccent: HSL, context: Context): CommonColorUtils.Companion.AccentColors {
             // ACCENT FG Calc
             val themeColorBG = MaterialColors.getColor(context, R.attr.GT_basicLcPrimary, Color.RED)

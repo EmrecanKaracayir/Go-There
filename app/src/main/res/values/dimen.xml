@@ -10,14 +10,15 @@
     <dimen name="spacing1XL">48dp</dimen>
     <dimen name="spacing2XL">56dp</dimen>
     <dimen name="spacing3XL">64dp</dimen>
+    <dimen name="spacing3_5XL">72dp</dimen>
     <dimen name="spacing4XL">96dp</dimen>
 
     <dimen name="spacingMaxWidth">600dp</dimen>
     <dimen name="spacingScreenBottom">@dimen/spacing2XS</dimen>
 
     <dimen name="screenSpacingSys">@dimen/spacing1XS</dimen>
-    <dimen name="headLineSpacingSys">@dimen/spacingSmall</dimen>
-    <dimen name="sectionSpacingSys">@dimen/spacing1XS</dimen>
+    <dimen name="headLineSpacingSys">@dimen/spacingMedium</dimen>
+    <dimen name="sectionSpacingSys">@dimen/spacingSmall</dimen>
     <dimen name="itemSpacingSys">@dimen/spacing2XS</dimen>
     <dimen name="innerSpacingSys">@dimen/spacing2XS</dimen>
 </resources>

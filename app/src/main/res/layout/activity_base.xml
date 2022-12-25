@@ -36,7 +36,7 @@
             android:clipChildren="true"
             app:cardElevation="@dimen/spacing2XS"
             app:cardBackgroundColor="?GT_basicTransparent"
-            app:cardCornerRadius="@dimen/spacing2XS"
+            app:cardCornerRadius="@dimen/spacing1XS"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,19 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/GT_compBase"
     tools:context=".features.root_postlog.explore.branch_explore.ui.ExploreFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Explore Fragment" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader
+                android:id="@+id/heroLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/accent_gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/exploreFragmentHeroLayout_FITS_TOP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/screenSpacingSys"
+                    android:paddingTop="@dimen/headLineSpacingSys"
+                    android:paddingEnd="@dimen/screenSpacingSys"
+                    android:paddingBottom="@dimen/sectionSpacingSys"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="@dimen/spacingMaxWidth">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/dateLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="12 Month Day"
+                                android:textAppearance="@style/GT_Typography.Regular.Caption"
+                                android:textColor="?attr/GT_basicHcSecondary" />
+
+                            <TextView
+                                android:id="@+id/titleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start"
+                                android:text="@string/explore"
+                                android:textAppearance="@style/GT_Typography.ExtraBold.Headline"
+                                android:textColor="?attr/GT_basicHcPrimary" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="?GT_compLayerPrimary"
+                            app:cardCornerRadius="24dp"
+                            app:strokeColor="?GT_compStroke"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:padding="@dimen/spacing3XS">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/spacing1XS"
+                                    android:paddingEnd="@dimen/spacing1XS">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/dots" />
+
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="@dimen/spacingMedium"
+                                    android:layout_height="@dimen/spacingMedium"
+                                    android:src="@drawable/profile_icon_svg" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:paddingTop="@dimen/sectionSpacingSys">
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/GT_Card.Surface.NoSize"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:id="@+id/heroImage"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/starbucks1"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintDimensionRatio="H,1:1"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:padding="@dimen/screenSpacingSys">
+
+                                    <com.google.android.material.card.MaterialCardView
+                                        style="@style/GT_Card.Widget.NoSize"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        app:cardCornerRadius="@dimen/spacing2XS"
+                                        app:cardElevation="0dp">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/spacing3XL"
+                                            android:layout_height="@dimen/spacing3XL"
+                                            android:src="@drawable/starbucks_logo" />
+
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/itemSpacingSys"
+                                        android:layout_marginEnd="@dimen/itemSpacingSys"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Starbucks"
+                                            android:textAppearance="@style/GT_Typography.Medium.Large.Body"
+                                            android:textColor="?GT_basicHcPrimary" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Coffeehouse &amp; Patisserie"
+                                            android:textAppearance="@style/GT_Typography.Regular.Large.Caption"
+                                            android:textColor="?GT_basicHcSecondary" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="#starbucks.tr"
+                                            android:textAppearance="@style/GT_Typography.Regular.Caption"
+                                            android:textColor="?GT_basicHcSecondary" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:orientation="vertical">
+
+                                        <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
+                                            style="@style/GT_Button.Oval"
+                                            android:text="@string/visit" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contentLayout_FITS_BOTTOM"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/screenSpacingSys"
+                android:paddingEnd="@dimen/screenSpacingSys"
+                android:paddingBottom="@dimen/spacing3_5XL"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/heroLayout"
+                app:layout_constraintWidth_max="@dimen/spacingMaxWidth" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

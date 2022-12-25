@@ -104,7 +104,7 @@ fun navigateToPrevious(
     // If the source is already a branch owner, return.
     if ((source as NavigationInfoProvider).isNavigationBranchOwner()) return
     // Find the best destination for the backward navigation. If not found, return.
-    val destination = navigationStack.findLast {
+    val destinationNode = navigationStack.findLast {
         it.isActive && it.location != (source as NavigationInfoProvider) &&
                 (it.location.getNavigationBranch() == (source as NavigationInfoProvider).getNavigationBranch())
     } ?: return
@@ -114,15 +114,15 @@ fun navigateToPrevious(
         R.anim.enter_from_left,
         R.anim.exit_to_right,
     )
-    transaction.attach(destination.location as Fragment)
+    transaction.attach(destinationNode.location as Fragment)
     val shouldCache = (source as NavigationInfoProvider).cacheOnBackPressed()
     if (shouldCache) {
         transaction.detach(source).setReorderingAllowed(true).commitNow()
-        destination.isActive = false
+        destinationNode.isActive = false
     } else {
         transaction.remove(source).setReorderingAllowed(true).commitNow()
         fragmentManager.popBackStackImmediate()
-        navigationStack.remove(destination)
+        navigationStack.removeIf { it.location == source }
     }
 }
 
@@ -254,10 +254,8 @@ private fun addDetachFragment(
         destination,
         (destination as NavigationInfoProvider).getNavigationTag().name
     ).detach(destination).commitNow()
-    val destinationNode = NavigationNode(
+    return NavigationNode(
         destination as NavigationInfoProvider,
         isActive = true
     )
-    navigationStack.add(destinationNode)
-    return destinationNode
 }

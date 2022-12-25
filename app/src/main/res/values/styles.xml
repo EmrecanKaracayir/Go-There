@@ -121,6 +121,26 @@
         <item name="iconSize">@dimen/spacing1XS</item>
     </style>
 
+    <style name="GT_Button.Oval" parent="Widget.Material3.Button">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/spacingMedium</item>
+        <item name="android:insetTop">@dimen/spacingNone</item>
+        <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:paddingLeft">@dimen/spacingNone</item>
+        <item name="android:paddingRight">@dimen/spacingNone</item>
+        <item name="android:paddingStart">@dimen/spacingSmall</item>
+        <item name="android:paddingTop">@dimen/spacingNone</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?GT_compStroke</item>
+        <item name="android:paddingEnd">@dimen/spacingSmall</item>
+        <item name="android:paddingBottom">@dimen/spacingNone</item>
+        <item name="cornerRadius">@dimen/spacing1XS</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/spacing2XS</item>
+        <item name="iconSize">@dimen/spacing1XS</item>
+    </style>
+
     <!-- ? TEXT FIELD -->
     <style name="GT_EditText" parent="ThemeOverlay.Material3.TextInputEditText">
         <!-- INPUT TEXT -->
@@ -154,7 +174,17 @@
     <style name="GT_Card.Surface.NoSize" parent="Widget.Material3.CardView.Filled">
         <item name="cardBackgroundColor">?GT_compSurface</item>
         <item name="cardElevation">@dimen/spacing2XS</item>
-        <item name="cornerRadius">@dimen/spacing2XS</item>
+        <item name="cardCornerRadius">@dimen/spacing1XS</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?GT_compStroke</item>
+    </style>
+
+    <style name="GT_Card.Widget.NoSize" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">?GT_compLayerPrimary</item>
+        <item name="cardElevation">@dimen/spacing2XS</item>
+        <item name="cardCornerRadius">@dimen/spacing1XS</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?GT_compStroke</item>
     </style>
 
     <!-- ? CHECKBOXES -->

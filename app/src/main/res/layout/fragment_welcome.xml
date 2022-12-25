@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/sectionSpacingSys">
+                android:paddingBottom="@dimen/screenSpacingSys">
 
                 <LinearLayout
                     android:id="@+id/welcomeTitle"
@@ -109,9 +109,9 @@
                     android:layout_height="wrap_content"
                     android:background="?attr/GT_compLayerPrimary"
                     android:orientation="vertical"
-                    android:paddingStart="@dimen/sectionSpacingSys"
+                    android:paddingStart="@dimen/screenSpacingSys"
                     android:paddingTop="@dimen/itemSpacingSys"
-                    android:paddingEnd="@dimen/sectionSpacingSys"
+                    android:paddingEnd="@dimen/screenSpacingSys"
                     android:paddingBottom="@dimen/itemSpacingSys">
 
                     <TextView
@@ -138,9 +138,9 @@
                     style="@style/GT_LayoutTextInput.Default"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/sectionSpacingSys"
+                    android:layout_marginStart="@dimen/screenSpacingSys"
                     android:layout_marginTop="@dimen/itemSpacingSys"
-                    android:layout_marginEnd="@dimen/sectionSpacingSys"
+                    android:layout_marginEnd="@dimen/screenSpacingSys"
                     android:hint="@string/username_textField_hint"
                     app:endIconMode="clear_text"
                     app:prefixText="\@">
@@ -159,9 +159,9 @@
                     style="@style/GT_LayoutTextInput.Default"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/sectionSpacingSys"
+                    android:layout_marginStart="@dimen/screenSpacingSys"
                     android:layout_marginTop="@dimen/itemSpacingSys"
-                    android:layout_marginEnd="@dimen/sectionSpacingSys"
+                    android:layout_marginEnd="@dimen/screenSpacingSys"
                     android:hint="@string/password_textField_hint"
                     app:endIconMode="password_toggle">
 
@@ -177,16 +177,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/sectionSpacingSys"
-                    android:layout_marginTop="@dimen/sectionSpacingSys"
-                    android:layout_marginEnd="@dimen/sectionSpacingSys">
+                    android:layout_marginStart="@dimen/screenSpacingSys"
+                    android:layout_marginTop="@dimen/screenSpacingSys"
+                    android:layout_marginEnd="@dimen/screenSpacingSys">
 
                     <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
                         android:id="@+id/signUpButton"
                         style="@style/GT_Button.Default"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/spacing1XL"
-                        android:layout_marginEnd="@dimen/sectionSpacingSys"
+                        android:layout_marginEnd="@dimen/screenSpacingSys"
                         android:layout_weight="1"
                         android:text="@string/signUp_button" />
 
@@ -194,7 +194,7 @@
                         android:id="@+id/loginButton"
                         style="@style/GT_Button.Default"
                         android:layout_width="match_parent"
-                        android:layout_marginStart="@dimen/sectionSpacingSys"
+                        android:layout_marginStart="@dimen/screenSpacingSys"
                         android:layout_weight="1"
                         android:text="@string/login_button" />
 
