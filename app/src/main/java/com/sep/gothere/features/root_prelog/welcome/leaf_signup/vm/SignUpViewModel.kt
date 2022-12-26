@@ -2,8 +2,8 @@ package com.sep.gothere.features.root_prelog.welcome.leaf_signup.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sep.gothere.api.model.request.SignUpRequest
-import com.sep.gothere.api.model.response.ApiResponse
+import com.sep.gothere.api.model.user_register.request.UserRegisterRequest
+import com.sep.gothere.api.model.login.response.LoginResponse
 import com.sep.gothere.data.UserRepository
 import com.sep.gothere.util.customCombine
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,9 +23,9 @@ class SignUpViewModel @Inject constructor(
 
     // region Sign Up State
     sealed class SignUpRequestEvent {
-        data class SignUpRequestLoading(val fetchLoading: ApiResponse?) : SignUpRequestEvent()
+        data class SignUpRequestLoading(val fetchLoading: LoginResponse?) : SignUpRequestEvent()
 
-        data class SignUpRequestSuccessful(val response: ApiResponse) : SignUpRequestEvent()
+        data class SignUpRequestSuccessful(val response: LoginResponse) : SignUpRequestEvent()
 
         data class SignUpRequestError(val error: Throwable) : SignUpRequestEvent()
     }
@@ -37,7 +37,7 @@ class SignUpViewModel @Inject constructor(
         name: String, surname: String, username: String, email: String, password: String
     ) {
         userRegisterVM(
-            SignUpRequest(
+            UserRegisterRequest(
                 userName = username,
                 name = name,
                 surname = surname,
@@ -48,8 +48,8 @@ class SignUpViewModel @Inject constructor(
     }
 
     private suspend fun userRegisterVM(
-        signUpRequest: SignUpRequest
-    ) = userRepository.userRegisterRP(signUpRequest, onFetchLoading = {
+        userRegisterRequest: UserRegisterRequest
+    ) = userRepository.userRegisterRP(userRegisterRequest, onFetchLoading = {
         viewModelScope.launch {
             signUpRequestEventChannel.send(
                 SignUpRequestEvent.SignUpRequestLoading(null)

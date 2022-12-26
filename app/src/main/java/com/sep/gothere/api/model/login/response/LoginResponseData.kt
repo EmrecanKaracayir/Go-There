@@ -1,4 +1,4 @@
-package com.sep.gothere.api.model.response
+package com.sep.gothere.api.model.login.response
 
 import java.util.Date
 

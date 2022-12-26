@@ -2,8 +2,8 @@ package com.sep.gothere.features.root_prelog.welcome.branch_welcome.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sep.gothere.api.model.request.LoginRequest
-import com.sep.gothere.api.model.response.ApiResponse
+import com.sep.gothere.api.model.login.request.LoginRequest
+import com.sep.gothere.api.model.login.response.LoginResponse
 import com.sep.gothere.data.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
@@ -71,9 +71,9 @@ class WelcomeViewModel @Inject constructor(
         }
 
     sealed class Event {
-        data class LoginLoading(val fetchLoading: ApiResponse?) : Event()
+        data class LoginLoading(val fetchLoading: LoginResponse?) : Event()
 
-        data class LoginSuccessful(val response: ApiResponse) : Event()
+        data class LoginSuccessful(val response: LoginResponse) : Event()
 
         data class LoginError(val error: Throwable) : Event()
     }

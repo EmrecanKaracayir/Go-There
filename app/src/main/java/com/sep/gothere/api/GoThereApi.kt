@@ -1,8 +1,9 @@
 package com.sep.gothere.api
 
-import com.sep.gothere.api.model.request.LoginRequest
-import com.sep.gothere.api.model.request.SignUpRequest
-import com.sep.gothere.api.model.response.ApiResponse
+import com.sep.gothere.api.model.common.response.ApiResponse
+import com.sep.gothere.api.model.login.request.LoginRequest
+import com.sep.gothere.api.model.user_register.request.UserRegisterRequest
+import com.sep.gothere.api.model.login.response.LoginResponse
 import retrofit2.http.*
 
 interface GoThereApi {
@@ -16,7 +17,7 @@ interface GoThereApi {
         "Content-type: application/json",
     )
     @POST("Auth/Login/")
-    suspend fun userLogin(@Body loginRequest: LoginRequest): ApiResponse
+    suspend fun userLogin(@Body loginRequest: LoginRequest): LoginResponse
 
     @Headers("accept: application/xml")
     @GET("Auth/UsernameControl")
@@ -33,6 +34,6 @@ interface GoThereApi {
     @Headers("accept: application/xml")
     @POST("Auth/Register/")
     suspend fun userRegister(
-        @Body signUpRequest: SignUpRequest
-    ): ApiResponse
+        @Body userRegisterRequest: UserRegisterRequest
+    ): LoginResponse
 }

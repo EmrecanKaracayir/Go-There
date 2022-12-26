@@ -1,9 +1,9 @@
 package com.sep.gothere.data
 
 import com.sep.gothere.api.GoThereApi
-import com.sep.gothere.api.model.request.LoginRequest
-import com.sep.gothere.api.model.request.SignUpRequest
-import com.sep.gothere.api.model.response.ApiResponse
+import com.sep.gothere.api.model.login.request.LoginRequest
+import com.sep.gothere.api.model.user_register.request.UserRegisterRequest
+import com.sep.gothere.api.model.login.response.LoginResponse
 import com.sep.gothere.practices.networkOnlyImmediateResource
 import retrofit2.HttpException
 import java.io.IOException
@@ -16,7 +16,7 @@ class UserRepository @Inject constructor(
     suspend fun userLoginRP(
         loginRequest: LoginRequest,
         onFetchLoading: () -> Unit,
-        onFetchSuccess: (ApiResponse) -> Unit,
+        onFetchSuccess: (LoginResponse) -> Unit,
         onFetchFailed: (Throwable) -> Unit
     ) = networkOnlyImmediateResource(
         fetch = {
@@ -35,7 +35,7 @@ class UserRepository @Inject constructor(
     suspend fun usernameCheckRP(
         usernameCheckRequest: String,
         onFetchLoading: () -> Unit,
-        onFetchSuccess: (ApiResponse) -> Unit,
+        onFetchSuccess: (LoginResponse) -> Unit,
         onFetchFailed: (Throwable) -> Unit
     ) = networkOnlyImmediateResource(
         fetch = {
@@ -54,7 +54,7 @@ class UserRepository @Inject constructor(
     suspend fun emailCheckRP(
         emailCheckRequest: String,
         onFetchLoading: () -> Unit,
-        onFetchSuccess: (ApiResponse) -> Unit,
+        onFetchSuccess: (LoginResponse) -> Unit,
         onFetchFailed: (Throwable) -> Unit
     ) = networkOnlyImmediateResource(
         fetch = {
@@ -71,13 +71,13 @@ class UserRepository @Inject constructor(
     )
 
     suspend fun userRegisterRP(
-        signUpRequest: SignUpRequest,
+        userRegisterRequest: UserRegisterRequest,
         onFetchLoading: () -> Unit,
-        onFetchSuccess: (ApiResponse) -> Unit,
+        onFetchSuccess: (LoginResponse) -> Unit,
         onFetchFailed: (Throwable) -> Unit
     ) = networkOnlyImmediateResource(
         fetch = {
-            goThereApi.userRegister(signUpRequest)
+            goThereApi.userRegister(userRegisterRequest)
         },
         onFetchLoading = onFetchLoading,
         onFetchSuccess = onFetchSuccess,

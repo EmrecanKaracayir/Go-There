@@ -1,6 +1,6 @@
-package com.sep.gothere.api.model.request
+package com.sep.gothere.api.model.user_register.request
 
-data class SignUpRequest(
+data class UserRegisterRequest(
     val id: Int = 0,
     val userName: String,
     val name: String,
