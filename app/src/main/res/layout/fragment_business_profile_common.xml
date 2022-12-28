@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/GT_compBase">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/heroLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/venueCoverImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/photo_placeholder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/businessProfileFragmentHeroLayout_FITS_TOP"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/screenSpacingSys"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="@dimen/spacingMaxWidth">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/screenSpacingSys"
+                android:paddingEnd="@dimen/screenSpacingSys">
+
+                <com.sep.gothere.component.dynamic.impl.button.GTButtonFilledReverse
+                    android:id="@+id/backButton"
+                    style="@style/GT_Button.Circle"
+                    android:layout_width="wrap_content"
+                    app:icon="@drawable/arrow_back_icon_svg" />
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.sep.gothere.component.dynamic.impl.button.GTButtonFilledReverse
+                        android:id="@+id/createBusinessButton"
+                        style="@style/GT_Button.Oval"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/screenSpacingSys"
+                        android:layout_marginEnd="@dimen/screenSpacingSys"
+                        android:text="@string/business" />
+
+                </FrameLayout>
+
+                <com.sep.gothere.component.dynamic.impl.button.GTButtonFilledReverse
+                    android:id="@+id/favoritesButtonCircle"
+                    style="@style/GT_Button.Circle"
+                    android:layout_width="wrap_content"
+                    app:icon="@drawable/heart_icon_svg" />
+
+            </LinearLayout>
+
+            <com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccent
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacingMAX"
+                android:background="@drawable/accent_gradient_bottom"
+                android:paddingTop="@dimen/spacing2XL">
+
+                <TextView
+                    android:id="@+id/venueName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screenSpacingSys"
+                    android:layout_marginEnd="@dimen/screenSpacingSys"
+                    android:gravity="start"
+                    android:text="Venue Name"
+                    android:textAppearance="@style/GT_Typography.ExtraBold.Headline"
+                    android:textColor="?attr/GT_basicHcPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="HardcodedText" />
+
+            </com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccent>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/accent_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heroLayout">
+
+        <LinearLayout
+            android:id="@+id/generalInfoSection"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/itemSpacingSys"
+            android:paddingStart="@dimen/screenSpacingSys"
+            android:paddingEnd="@dimen/screenSpacingSys"
+            android:paddingBottom="@dimen/screenSpacingSys">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/GT_Card.Widget.NoSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/spacing2XS">
+
+                <ImageView
+                    android:id="@+id/venueProfileImage"
+                    android:layout_width="@dimen/spacing4XL"
+                    android:layout_height="@dimen/spacing4XL"
+                    android:src="@drawable/photo_placeholder"
+                    tools:ignore="ContentDescription" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screenSpacingSys"
+                android:layout_marginEnd="@dimen/itemSpacingSys"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/venue_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="#venue.username"
+                    android:textAppearance="@style/GT_Typography.SemiBold.Large.Subtitle"
+                    android:textColor="?GT_basicHcPrimary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/venueShortDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Venue Short Description"
+                    android:textAppearance="@style/GT_Typography.Medium.Large.Body"
+                    android:textColor="?GT_basicHcSecondary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/venueMainCommunication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="www.company.com"
+                    android:textAppearance="@style/GT_Typography.Regular.Caption"
+                    android:textColor="?GT_basicHcSecondary"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/venueFavCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2048"
+                        android:textAppearance="@style/GT_Typography.Medium.Body"
+                        android:textColor="?GT_basicHcPrimary"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing3XS"
+                        android:layout_weight="1"
+                        android:text="@string/favorites"
+                        android:textAppearance="@style/GT_Typography.Medium.Body"
+                        android:textColor="?GT_basicHcSecondary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/venueBiography"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screenSpacingSys"
+            android:layout_marginEnd="@dimen/screenSpacingSys"
+            android:textAppearance="@style/GT_Typography.Medium.Body"
+            android:text="Venue biography section is here!"
+            android:textColor="?GT_basicHcPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/generalInfoSection"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/screenSpacingSys"
+            app:layout_constraintTop_toBottomOf="@id/venueBiography"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content">
+
+            <com.sep.gothere.component.dynamic.impl.button.GTButtonFilled
+                android:id="@+id/favoritesButton"
+                style="@style/GT_Button.Default"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:icon="@drawable/heart_icon_svg"
+                android:text="@string/add_to_favorites" />
+
+            <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
+                android:id="@+id/signUpButton"
+                app:icon="@drawable/location_icon_svg"
+                style="@style/GT_Button.Default"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/itemSpacingSys"
+                android:layout_marginEnd="@dimen/itemSpacingSys"
+                android:text="@string/visit" />
+
+            <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
+                android:id="@+id/moreOptionsButton"
+                style="@style/GT_Button.Circle"
+                android:layout_width="wrap_content"
+                app:icon="@drawable/more_icon_svg" />
+
+        </LinearLayout>
+
+    </com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -91,6 +91,8 @@
         <item name="android:layout_height">@dimen/spacing1XL</item>
         <item name="android:insetTop">@dimen/spacingNone</item>
         <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:insetLeft">@dimen/spacingNone</item>
+        <item name="android:insetRight">@dimen/spacingNone</item>
         <item name="android:paddingLeft">@dimen/spacingNone</item>
         <item name="android:paddingRight">@dimen/spacingNone</item>
         <item name="android:paddingStart">@dimen/spacing1XS</item>
@@ -109,6 +111,8 @@
         <item name="android:layout_height">@dimen/spacing1XL</item>
         <item name="android:insetTop">@dimen/spacingNone</item>
         <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:insetLeft">@dimen/spacingNone</item>
+        <item name="android:insetRight">@dimen/spacingNone</item>
         <item name="android:paddingLeft">@dimen/spacingNone</item>
         <item name="android:paddingRight">@dimen/spacingNone</item>
         <item name="android:paddingStart">@dimen/spacing1XS</item>
@@ -127,6 +131,8 @@
         <item name="android:layout_height">@dimen/spacingMedium</item>
         <item name="android:insetTop">@dimen/spacingNone</item>
         <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:insetLeft">@dimen/spacingNone</item>
+        <item name="android:insetRight">@dimen/spacingNone</item>
         <item name="android:paddingLeft">@dimen/spacingNone</item>
         <item name="android:paddingRight">@dimen/spacingNone</item>
         <item name="android:paddingStart">@dimen/spacingSmall</item>
@@ -138,6 +144,27 @@
         <item name="cornerRadius">@dimen/spacing1XS</item>
         <item name="iconGravity">textStart</item>
         <item name="iconPadding">@dimen/spacing2XS</item>
+        <item name="iconSize">@dimen/spacing1XS</item>
+    </style>
+
+    <style name="GT_Button.Circle" parent="Widget.Material3.Button.IconButton">
+        <item name="android:textAppearance">@style/GT_Typography.Medium.Large.Body</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/spacing1XL</item>
+        <item name="android:insetTop">@dimen/spacingNone</item>
+        <item name="android:insetBottom">@dimen/spacingNone</item>
+        <item name="android:insetLeft">@dimen/spacingNone</item>
+        <item name="android:insetRight">@dimen/spacingNone</item>
+        <item name="android:paddingLeft">@dimen/spacingNone</item>
+        <item name="android:paddingRight">@dimen/spacingNone</item>
+        <item name="android:paddingStart">@dimen/spacing1XS</item>
+        <item name="android:paddingTop">@dimen/spacingNone</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?GT_compStroke</item>
+        <item name="android:paddingEnd">@dimen/spacing1XS</item>
+        <item name="android:paddingBottom">@dimen/spacingNone</item>
+        <item name="cornerRadius">@dimen/spacingSmall</item>
+        <item name="iconGravity">textStart</item>
         <item name="iconSize">@dimen/spacing1XS</item>
     </style>
 
@@ -165,10 +192,9 @@
         <item name="suffixTextAppearance">@style/GT_Typography.Medium.Large.Body</item>
     </style>
 
-    <!-- <style name="GT_TextField.Filled" parent="GT_LayoutTextInput.Default">-->
-    <!-- BACKGROUND FILL -->
-    <!-- <item name="boxBackgroundColor">?GT_compSurface</item>-->
-    <!-- </style>-->
+    <style name="GT_LayoutTextInput.Filled" parent="GT_LayoutTextInput.Default">
+        <item name="boxBackgroundColor">?GT_compSurface</item>
+    </style>
 
     <!-- ? CARDS -->
     <style name="GT_Card.Surface.NoSize" parent="Widget.Material3.CardView.Filled">

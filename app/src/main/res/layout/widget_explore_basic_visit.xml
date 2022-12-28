@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false">
 
     <com.google.android.material.card.MaterialCardView
         style="@style/GT_Card.Surface.NoSize"
         android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/sectionSpacingSys"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +36,8 @@
                     app:layout_constraintDimensionRatio="H,1:1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -53,17 +56,19 @@
                     app:cardElevation="0dp">
 
                     <ImageView
-                        android:id="@+id/venueLogoImage"
+                        android:id="@+id/venueProfileImage"
                         android:layout_width="@dimen/spacing3XL"
                         android:layout_height="@dimen/spacing3XL"
-                        android:src="@drawable/photo_placeholder" />
+                        android:src="@drawable/photo_placeholder"
+                        tools:ignore="ContentDescription" />
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/itemSpacingSys"
+                    android:layout_weight="1"
                     android:layout_marginEnd="@dimen/itemSpacingSys"
                     android:orientation="vertical">
 
@@ -73,7 +78,8 @@
                         android:layout_height="wrap_content"
                         android:text="Venue Name"
                         android:textAppearance="@style/GT_Typography.Medium.Large.Body"
-                        android:textColor="?GT_basicHcPrimary" />
+                        android:textColor="?GT_basicHcPrimary"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/venueShortDesc"
@@ -81,22 +87,23 @@
                         android:layout_height="wrap_content"
                         android:text="Venue Short Description"
                         android:textAppearance="@style/GT_Typography.Regular.Large.Caption"
-                        android:textColor="?GT_basicHcSecondary" />
+                        android:textColor="?GT_basicHcSecondary"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
-                        android:id="@+id/venueID"
+                        android:id="@+id/venue_username"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="#venue.id"
+                        android:text="#venue.username"
                         android:textAppearance="@style/GT_Typography.Regular.Caption"
-                        android:textColor="?GT_basicHcSecondary" />
+                        android:textColor="?GT_basicHcSecondary"
+                        tools:ignore="HardcodedText" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="end"
                     android:orientation="vertical">
 

@@ -4,7 +4,7 @@ import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class CustomFitsSystemUI() {
+class CustomFitsSystemUI {
 
     enum class RequestedInset {
         START, TOP, END, BOTTOM

@@ -7,7 +7,7 @@
     android:background="?attr/GT_compBase"
     tools:context=".features.root_prelog.welcome.leaf_signup.ui.SignUpFragment">
 
-    <com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader
+    <com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader
         android:id="@+id/heroLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
 
         </LinearLayout>
 
-    </com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader>
+    </com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/signUpFragmentContentLayout_FITS_BOTTOM"

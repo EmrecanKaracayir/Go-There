@@ -12,6 +12,7 @@
     <dimen name="spacing3XL">64dp</dimen>
     <dimen name="spacing3_5XL">72dp</dimen>
     <dimen name="spacing4XL">96dp</dimen>
+    <dimen name="spacingMAX">128dp</dimen>
 
     <dimen name="spacingMaxWidth">600dp</dimen>
     <dimen name="spacingScreenBottom">@dimen/spacing2XS</dimen>

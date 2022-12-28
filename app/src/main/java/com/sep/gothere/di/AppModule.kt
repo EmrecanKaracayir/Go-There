@@ -2,8 +2,9 @@ package com.sep.gothere.di
 
 import android.content.Context
 import com.sep.gothere.api.GoThereApi
-import com.sep.gothere.data.UserPreferencesRepository
-import com.sep.gothere.data.UserRepository
+import com.sep.gothere.data.LocalUserPreferencesRepository
+import com.sep.gothere.data.NetworkUserRepository
+import com.sep.gothere.data.NetworkVenueRepository
 import com.sep.gothere.managers.datastore.DataStoreManager
 import dagger.Module
 import dagger.Provides
@@ -35,13 +36,19 @@ object AppModule {
     @Singleton
     fun provideUserRepository(
         goThereApi: GoThereApi
-    ): UserRepository = UserRepository(goThereApi)
+    ): NetworkUserRepository = NetworkUserRepository(goThereApi)
+
+    @Provides
+    @Singleton
+    fun provideVenueRepository(
+        goThereApi: GoThereApi
+    ): NetworkVenueRepository = NetworkVenueRepository(goThereApi)
 
     @Provides
     @Singleton
     fun provideUserPreferencesRepository(
         dataStoreManager: DataStoreManager
-    ): UserPreferencesRepository = UserPreferencesRepository(dataStoreManager)
+    ): LocalUserPreferencesRepository = LocalUserPreferencesRepository(dataStoreManager)
 
     @Provides
     @Singleton

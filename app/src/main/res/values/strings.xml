@@ -35,7 +35,7 @@
     <string name="login_error_wrong_credentials">Wrong \"Username\" or \"Password\".</string>
     <string name="signUp_error_username_taken">The \"Username\" is already taken.</string>
     <string name="signUp_error_email_taken">The \"Email\" is already taken.</string>
-    <string name="signUp_error_email_format">The \"Email\" is not in the right format.</string>
+    <string name="error_email_format">The \"Email\" is not in the right format.</string>
     <string name="signUp_error_short_password">\"Password\" is shorter than needed.</string>
     <string name="signUp_error_passwords_do_not_match">Passwords don\'t match.</string>
     <string name="signUp_error_must_accept_terms_conditions">You must accept \"Terms and Conditions\".</string>
@@ -45,4 +45,22 @@
     <string name="profile">Profile</string>
     <string name="business">Business</string>
     <string name="visit">Visit</string>
+    <string name="log_out">Log out</string>
+    <string name="under_development">Under development</string>
+    <string name="search_venues">Search venues</string>
+    <string name="search_business">Search your businesses</string>
+    <string name="create_business">Create</string>
+    <string name="favorites">Favorites</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="short_description">Short Description</string>
+    <string name="venue_username">Venue Username</string>
+    <string name="biography">Biography</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="upload">Upload</string>
+    <string name="cover_image">Cover Image</string>
+    <string name="cancel">Cancel</string>
+    <string name="complete">Complete</string>
+    <string name="firststep">#FirstStep</string>
 </resources>

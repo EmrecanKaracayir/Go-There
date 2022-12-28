@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.sep.gothere.component.stable.GTGlassSurface
+                <com.sep.gothere.component.static.GTGlassSurface
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -94,8 +94,8 @@
                             android:layout_height="@dimen/spacingSmall"
                             android:layout_marginBottom="@dimen/spacing3XS"
                             android:adjustViewBounds="true"
-                            android:contentDescription="TODO"
-                            android:src="@drawable/explore_icon_svg" />
+                            android:src="@drawable/explore_icon_svg"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -122,8 +122,8 @@
                             android:layout_height="@dimen/spacingSmall"
                             android:layout_marginBottom="@dimen/spacing3XS"
                             android:adjustViewBounds="true"
-                            android:contentDescription="TODO"
-                            android:src="@drawable/search_icon_svg" />
+                            android:src="@drawable/search_icon_svg"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -150,8 +150,8 @@
                             android:layout_height="@dimen/spacingSmall"
                             android:layout_marginBottom="@dimen/spacing3XS"
                             android:adjustViewBounds="true"
-                            android:contentDescription="TODO"
-                            android:src="@drawable/profile_icon_svg" />
+                            android:src="@drawable/profile_icon_svg"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -178,8 +178,8 @@
                             android:layout_height="@dimen/spacingSmall"
                             android:layout_marginBottom="@dimen/spacing3XS"
                             android:adjustViewBounds="true"
-                            android:contentDescription="TODO"
-                            android:src="@drawable/business_icon_svg" />
+                            android:src="@drawable/business_icon_svg"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:layout_width="match_parent"

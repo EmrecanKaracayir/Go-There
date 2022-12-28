@@ -28,7 +28,7 @@
     <string name="signUp_error_short_password">\"Parola\" olması gerekenden kısa.</string>
     <string name="signUp_error_passwords_do_not_match">Parolalar eşleşmiyor.</string>
     <string name="uncategorized_error">[DEV] - Kategorize edilmemiş hata ile karşılaşıldı.</string>
-    <string name="signUp_error_email_format">\"E-posta\" doğru formatta değil.</string>
+    <string name="error_email_format">\"E-posta\" doğru formatta değil.</string>
     <string name="checkbox_terms_conditions_accept">Kabul ediyorum.</string>
     <string name="signUp_error_must_accept_terms_conditions">Kullanıcı Sözleşmesi\'ni kabul etmelisin.</string>
     <string name="password_textField_helper">\"Parola\" en az 8 karakter olmalı.</string>
@@ -37,4 +37,22 @@
     <string name="profile">Profil</string>
     <string name="business">İşletme</string>
     <string name="visit">Git</string>
+    <string name="log_out">Çıkış yap</string>
+    <string name="under_development">Geliştirme aşamasında</string>
+    <string name="search_venues">Aktivite noktalarını ara</string>
+    <string name="search_business">İşletmelerinde ara</string>
+    <string name="create_business">Oluştur</string>
+    <string name="favorites">Favori</string>
+    <string name="add_to_favorites">Favorilerine ekle</string>
+    <string name="phone">Telefon</string>
+    <string name="address">Adres</string>
+    <string name="short_description">Kısa açıklama</string>
+    <string name="venue_username">İşletme kullanıcı adı</string>
+    <string name="biography">Biyografi</string>
+    <string name="profile_image">Profil fotoğrafı</string>
+    <string name="upload">Yükle</string>
+    <string name="cover_image">Kapak fotoğrafı</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="complete">Tamamla</string>
+    <string name="firststep">#İlkAdım</string>
 </resources>

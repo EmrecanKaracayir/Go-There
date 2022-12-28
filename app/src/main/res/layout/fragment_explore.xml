@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeRefreshLayout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader
+            <com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader
                 android:id="@+id/heroLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +66,8 @@
                                 android:gravity="start"
                                 android:text="12 Month Day"
                                 android:textAppearance="@style/GT_Typography.Regular.Caption"
-                                android:textColor="?attr/GT_basicHcSecondary" />
+                                android:textColor="?attr/GT_basicHcSecondary"
+                                tools:ignore="HardcodedText" />
 
                             <TextView
                                 android:id="@+id/titleLabel"
@@ -102,14 +104,16 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:src="@drawable/dots" />
+                                        android:src="@drawable/dots"
+                                        tools:ignore="ContentDescription,TooDeepLayout" />
 
                                 </LinearLayout>
 
                                 <ImageView
                                     android:layout_width="@dimen/spacingMedium"
                                     android:layout_height="@dimen/spacingMedium"
-                                    android:src="@drawable/profile_icon_svg" />
+                                    android:src="@drawable/profile_icon_svg"
+                                    tools:ignore="ContentDescription" />
 
                             </LinearLayout>
 
@@ -127,7 +131,11 @@
                         <com.google.android.material.card.MaterialCardView
                             style="@style/GT_Card.Surface.NoSize"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -139,16 +147,17 @@
                                     android:layout_height="wrap_content">
 
                                     <ImageView
-                                        android:id="@+id/heroImage"
+                                        android:id="@+id/heroVenueCoverImage"
                                         android:layout_width="0dp"
                                         android:layout_height="0dp"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/starbucks1"
+                                        android:src="@drawable/photo_placeholder"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintDimensionRatio="H,1:1"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        tools:ignore="ContentDescription" />
 
                                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -167,50 +176,59 @@
                                         app:cardElevation="0dp">
 
                                         <ImageView
+                                            android:id="@+id/heroVenueProfileImage"
                                             android:layout_width="@dimen/spacing3XL"
                                             android:layout_height="@dimen/spacing3XL"
-                                            android:src="@drawable/starbucks_logo" />
+                                            android:src="@drawable/photo_placeholder"
+                                            tools:ignore="ContentDescription" />
 
                                     </com.google.android.material.card.MaterialCardView>
-
-                                    <LinearLayout
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="@dimen/itemSpacingSys"
-                                        android:layout_marginEnd="@dimen/itemSpacingSys"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="Starbucks"
-                                            android:textAppearance="@style/GT_Typography.Medium.Large.Body"
-                                            android:textColor="?GT_basicHcPrimary" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="Coffeehouse &amp; Patisserie"
-                                            android:textAppearance="@style/GT_Typography.Regular.Large.Caption"
-                                            android:textColor="?GT_basicHcSecondary" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="#starbucks.tr"
-                                            android:textAppearance="@style/GT_Typography.Regular.Caption"
-                                            android:textColor="?GT_basicHcSecondary" />
-
-                                    </LinearLayout>
 
                                     <LinearLayout
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
+                                        android:layout_marginStart="@dimen/itemSpacingSys"
+                                        android:layout_marginEnd="@dimen/itemSpacingSys"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/heroVenueName"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Venue Name"
+                                            android:textAppearance="@style/GT_Typography.Medium.Large.Body"
+                                            android:textColor="?GT_basicHcPrimary"
+                                            tools:ignore="HardcodedText" />
+
+                                        <TextView
+                                            android:id="@+id/heroVenueShortDesc"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Venue Short Description"
+                                            android:textAppearance="@style/GT_Typography.Regular.Large.Caption"
+                                            android:textColor="?GT_basicHcSecondary"
+                                            tools:ignore="HardcodedText" />
+
+                                        <TextView
+                                            android:id="@+id/heroVenueUsername"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="#venue.username"
+                                            android:textAppearance="@style/GT_Typography.Regular.Caption"
+                                            android:textColor="?GT_basicHcSecondary"
+                                            tools:ignore="HardcodedText" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
                                         android:gravity="end"
                                         android:orientation="vertical">
 
                                         <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
+                                            android:id="@+id/heroVisitButton"
                                             style="@style/GT_Button.Oval"
                                             android:text="@string/visit" />
 
@@ -226,10 +244,10 @@
 
                 </LinearLayout>
 
-            </com.sep.gothere.component.dynamic.impl.layout.GTLayoutHeader>
+            </com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/contentLayout_FITS_BOTTOM"
+                android:id="@+id/recyclerView_FITS_BOTTOM"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:clipChildren="false"
@@ -248,4 +266,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

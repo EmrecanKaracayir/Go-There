@@ -1,12 +1,18 @@
 package com.sep.gothere.navigation
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.sep.gothere.R
+import com.sep.gothere.base.BaseFragment
 import com.sep.gothere.features.root_postlog.business.branch_business.ui.BusinessFragment
+import com.sep.gothere.features.root_postlog.business.leaf_business_profile.ui.BusinessProfileFragmentBusiness
+import com.sep.gothere.features.root_postlog.business.leaf_business_put.ui.BusinessPutFragment
 import com.sep.gothere.features.root_postlog.explore.branch_explore.ui.ExploreFragment
+import com.sep.gothere.features.root_postlog.explore.leaf_business_profile_explore.ui.BusinessProfileFragmentExplore
 import com.sep.gothere.features.root_postlog.profile.branch_profile.ui.ProfileFragment
 import com.sep.gothere.features.root_postlog.search.branch_search.ui.SearchFragment
+import com.sep.gothere.features.root_postlog.search.leaf_business_profile_search.ui.BusinessProfileFragmentSearch
 import com.sep.gothere.features.root_prelog.welcome.leaf_signup.ui.SignUpFragment
 import com.sep.gothere.features.root_prelog.welcome.branch_welcome.ui.WelcomeFragment
 import com.sep.gothere.util.exhaustive
@@ -32,6 +38,10 @@ fun saveLocationIndex(fragmentManager: FragmentManager) {
     if (source != null)
         savedLocationIndex =
             navigationStack.indexOf(navigationStack.find { it.location == source as NavigationInfoProvider })
+}
+
+fun getCurrentRoot(fragmentManager: FragmentManager): NavigationInfoProvider.NavigationRoot {
+    return (fragmentManager.findFragmentById(BASE_FRAGMENT_CONTAINER) as NavigationInfoProvider).getNavigationRoot()
 }
 
 fun navigateToRoot(
@@ -178,8 +188,74 @@ fun navigateToTag(
                 destinationNode = addDetachFragment(fragmentManager, BusinessFragment())
             navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
         }
-    }.exhaustive
+        NavigationInfoProvider.NavigationTag.TAG_BUSINESS_PUT_FRAGMENT -> {
+            var destinationNode =
+                navigationStack.find { it.location.getNavigationTag() == navigationTag }
+            if (destinationNode == null)
+                destinationNode = addDetachFragment(fragmentManager, BusinessPutFragment())
+            navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
+        }
+        else -> (throw IllegalArgumentException())
+    }
 }
+
+/** Function to provide common forward navigation.
+ * If destination object is null. Function creates the destination.
+ * @param navigationTag defines the destination.
+ * @param animate determines whether the transition applies an animation.*/
+fun navigateToTagWithBundle(
+    fragmentManager: FragmentManager,
+    bundle: Bundle,
+    navigationTag: NavigationInfoProvider.NavigationTag,
+    animate: Boolean
+) {
+    when (navigationTag) {
+        NavigationInfoProvider.NavigationTag.TAG_BUSINESS_PUT_FRAGMENT -> {
+            var destinationNode =
+                navigationStack.find { it.location.getNavigationTag() == navigationTag }
+            if (destinationNode == null) {
+                val destination = BusinessPutFragment()
+                destination.arguments = bundle
+                destinationNode = addDetachFragment(fragmentManager, destination)
+            }
+            navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
+        }
+        NavigationInfoProvider.NavigationTag.TAG_BUSINESS_PROFILE_FRAGMENT_BUSINESS -> {
+            var destinationNode =
+                navigationStack.find { it.location.getNavigationTag() == navigationTag }
+            if (destinationNode == null) {
+                val destination = BusinessProfileFragmentBusiness()
+                destination.arguments = bundle
+                destinationNode = addDetachFragment(fragmentManager, destination)
+            }
+            navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
+        }
+        NavigationInfoProvider.NavigationTag.TAG_BUSINESS_PROFILE_FRAGMENT_EXPLORE -> {
+            var destinationNode =
+                navigationStack.find { it.location.getNavigationTag() == navigationTag }
+            if (destinationNode == null) {
+                val destination = BusinessProfileFragmentExplore()
+                destination.arguments = bundle
+                destinationNode = addDetachFragment(fragmentManager, destination)
+            }
+            navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
+        }
+        NavigationInfoProvider.NavigationTag.TAG_BUSINESS_PROFILE_FRAGMENT_SEARCH -> {
+            var destinationNode =
+                navigationStack.find { it.location.getNavigationTag() == navigationTag }
+            if (destinationNode == null) {
+                val destination = BusinessProfileFragmentSearch()
+                destination.arguments = bundle
+                destinationNode = addDetachFragment(fragmentManager, destination)
+            }
+            navigateToFragment(fragmentManager, destinationNode.location as Fragment, animate)
+        }
+        else -> {
+            throw IllegalArgumentException()
+        }
+    }
+}
+
 
 /** Navigates to the given destination object.
  * @param animate determines whether the transition applies an animation.
@@ -218,7 +294,7 @@ private fun createNavigatePreLogNavigationRoot(fragmentManager: FragmentManager)
 /** Removes all PRELOG root navigation components. */
 private fun destroyPreLogNavigationRoot(fragmentManager: FragmentManager) {
     for (fragment in fragmentManager.fragments)
-        if ((fragment as NavigationInfoProvider).getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_PRELOG)
+        if (fragment is BaseFragment && (fragment as NavigationInfoProvider).getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_PRELOG)
             fragmentManager.beginTransaction().remove(fragment).commitNow()
     navigationStack.removeIf {
         it.location.getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_PRELOG
@@ -237,7 +313,7 @@ private fun createNavigatePostLogNavigationRoot(fragmentManager: FragmentManager
 /** Removes all POSTLOG root navigation components */
 private fun destroyPostLogNavigationRoot(fragmentManager: FragmentManager) {
     for (fragment in fragmentManager.fragments)
-        if ((fragment as NavigationInfoProvider).getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG)
+        if (fragment is BaseFragment && (fragment as NavigationInfoProvider).getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG)
             fragmentManager.beginTransaction().remove(fragment).commitNow()
     navigationStack.removeIf {
         it.location.getNavigationRoot() == NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG

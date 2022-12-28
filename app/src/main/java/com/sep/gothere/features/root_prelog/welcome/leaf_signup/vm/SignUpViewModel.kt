@@ -2,10 +2,10 @@ package com.sep.gothere.features.root_prelog.welcome.leaf_signup.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sep.gothere.api.model.user_register.request.UserRegisterRequest
-import com.sep.gothere.api.model.login.response.LoginResponse
-import com.sep.gothere.data.UserRepository
-import com.sep.gothere.util.customCombine
+import com.sep.gothere.api.model.user.register.request.UserRegisterRequest
+import com.sep.gothere.api.model.user.register.response.UserRegisterResponse
+import com.sep.gothere.data.NetworkUserRepository
+import com.sep.gothere.util.customCombine7
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val networkUserRepository: NetworkUserRepository
 ) : ViewModel() {
 
     companion object {
@@ -23,9 +23,9 @@ class SignUpViewModel @Inject constructor(
 
     // region Sign Up State
     sealed class SignUpRequestEvent {
-        data class SignUpRequestLoading(val fetchLoading: LoginResponse?) : SignUpRequestEvent()
+        data class SignUpRequestLoading(val fetchLoading: UserRegisterResponse?) : SignUpRequestEvent()
 
-        data class SignUpRequestSuccessful(val response: LoginResponse) : SignUpRequestEvent()
+        data class SignUpRequestSuccessful(val response: UserRegisterResponse) : SignUpRequestEvent()
 
         data class SignUpRequestError(val error: Throwable) : SignUpRequestEvent()
     }
@@ -49,7 +49,7 @@ class SignUpViewModel @Inject constructor(
 
     private suspend fun userRegisterVM(
         userRegisterRequest: UserRegisterRequest
-    ) = userRepository.userRegisterRP(userRegisterRequest, onFetchLoading = {
+    ) = networkUserRepository.userRegisterRP(userRegisterRequest, onFetchLoading = {
         viewModelScope.launch {
             signUpRequestEventChannel.send(
                 SignUpRequestEvent.SignUpRequestLoading(null)
@@ -116,7 +116,7 @@ class SignUpViewModel @Inject constructor(
 
     private suspend fun usernameCheckVM(
         username: String
-    ) = userRepository.usernameCheckRP(username, onFetchLoading = {
+    ) = networkUserRepository.usernameCheckRP(username, onFetchLoading = {
         viewModelScope.launch {
             usernameFieldStateEventChannel.send(
                 UsernameFieldState.LOADING_NETWORK_REQUEST
@@ -154,7 +154,7 @@ class SignUpViewModel @Inject constructor(
 
     private suspend fun emailCheckVM(
         email: String
-    ) = userRepository.emailCheckRP(email, onFetchLoading = {
+    ) = networkUserRepository.emailCheckRP(email, onFetchLoading = {
         viewModelScope.launch {
             emailFieldStateEventChannel.send(EmailFieldState.LOADING_NETWORK_REQUEST)
         }
@@ -224,7 +224,7 @@ class SignUpViewModel @Inject constructor(
     }
     // endregion
 
-    val isSignUpButtonEnabled: Flow<Boolean> = customCombine(
+    val isSignUpButtonEnabled: Flow<Boolean> = customCombine7(
         nameFieldStateEvents,
         surnameFieldStateEvents,
         usernameFieldStateEvents,
@@ -240,6 +240,6 @@ class SignUpViewModel @Inject constructor(
         val isPasswordStateValid = passwordState == PasswordFieldState.VALID
         val isConfirmPasswordStateValid = confirmPasswordState == ConfirmPasswordFieldState.VALID
         val isTermsConditionsStateValid = termsConditionsState == TermsConditionsFieldState.VALID
-        return@customCombine (isNameFieldValid and isSurnameFieldValid and isUsernameStateValid and isEmailStateValid and isPasswordStateValid and isConfirmPasswordStateValid and isTermsConditionsStateValid)
+        return@customCombine7 (isNameFieldValid and isSurnameFieldValid and isUsernameStateValid and isEmailStateValid and isPasswordStateValid and isConfirmPasswordStateValid and isTermsConditionsStateValid)
     }
 }

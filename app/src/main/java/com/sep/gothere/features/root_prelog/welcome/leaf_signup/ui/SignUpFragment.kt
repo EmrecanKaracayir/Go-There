@@ -8,7 +8,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.sep.gothere.R
 import com.sep.gothere.base.BaseActivity
@@ -25,6 +27,7 @@ import com.sep.gothere.util.DelayedTextWatcher
 import com.sep.gothere.util.exhaustive
 import com.sep.gothere.util.showSnackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoProvider {
@@ -45,7 +48,13 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
 
         FragmentSignUpBinding.bind(view).apply {
             val fs = FeatureStylizer(requireContext(), accentHSL)
-            fs.findStylableComponentsAndApplyStyle(root)
+            lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    fs.findStylableComponentsAndApplyStyle(
+                        root
+                    )
+                }
+            }
 
             CustomFitsSystemUI().fitsSystemUI(
                 signUpFragmentHeroLayoutFITSTOP,
@@ -63,21 +72,25 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
                 (activity as BaseActivity).navigateBackRequested()
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.isSignUpButtonEnabled.collect { value ->
-                    signUpButton.isEnabled = value
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.isSignUpButtonEnabled.collect { value ->
+                        signUpButton.isEnabled = value
+                    }
                 }
             }
             signUpButton.setOnClickListener {
                 hideKeyboard()
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.signUpButtonClicked(
-                        nameEditText.text.toString(),
-                        surnameEditText.text.toString(),
-                        usernameEditText.text.toString(),
-                        emailEditText.text.toString(),
-                        passwordEditText.text.toString()
-                    )
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.signUpButtonClicked(
+                            nameEditText.text.toString(),
+                            surnameEditText.text.toString(),
+                            usernameEditText.text.toString(),
+                            emailEditText.text.toString(),
+                            passwordEditText.text.toString()
+                        )
+                    }
                 }
             }
 
@@ -90,49 +103,65 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
     private fun componentsListenerAssigner(binding: FragmentSignUpBinding) {
         binding.apply {
             nameEditText.addTextChangedListener {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateNameField(it.toString())
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateNameField(it.toString())
+                    }
                 }
             }
             surnameEditText.addTextChangedListener {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateSurnameField(it.toString())
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateSurnameField(it.toString())
+                    }
                 }
             }
             usernameEditText.addTextChangedListener(DelayedTextWatcher {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateUsernameField(it.toString())
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateUsernameField(it.toString())
+                    }
                 }
             })
             emailEditText.addTextChangedListener(DelayedTextWatcher {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateEmailField(it.toString())
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateEmailField(it.toString())
+                    }
                 }
             })
             passwordEditText.addTextChangedListener {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validatePasswordField(it.toString())
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validatePasswordField(it.toString())
+                    }
                 }
             }
             confirmPasswordEditText.addTextChangedListener {
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateConfirmPasswordField(
-                        it.toString(), passwordEditText.text.toString()
-                    )
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateConfirmPasswordField(
+                            it.toString(), passwordEditText.text.toString()
+                        )
+                    }
                 }
             }
             termsAndConditionsCheckbox.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                        viewModel.validateTermsConditionsField(
-                            SignUpViewModel.TermsConditionsFieldState.VALID
-                        )
+                    this@SignUpFragment.lifecycleScope.launch {
+                        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                            viewModel.validateTermsConditionsField(
+                                SignUpViewModel.TermsConditionsFieldState.VALID
+                            )
+                        }
                     }
                 } else {
-                    this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                        viewModel.validateTermsConditionsField(
-                            SignUpViewModel.TermsConditionsFieldState.INVALID
-                        )
+                    this@SignUpFragment.lifecycleScope.launch {
+                        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                            viewModel.validateTermsConditionsField(
+                                SignUpViewModel.TermsConditionsFieldState.INVALID
+                            )
+                        }
                     }
                 }
             }
@@ -152,16 +181,20 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
         ).setTitle(resources.getString(R.string.terms_and_conditions_dialog_title))
             .setMessage(resources.getString(R.string.terms_and_conditions_full))
             .setNegativeButton(resources.getString(R.string.terms_and_conditions_dialog_decline_button)) { dialog, _ ->
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    binding.termsAndConditionsCheckbox.isChecked = false
-                    viewModel.validateTermsConditionsField(SignUpViewModel.TermsConditionsFieldState.INVALID)
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        binding.termsAndConditionsCheckbox.isChecked = false
+                        viewModel.validateTermsConditionsField(SignUpViewModel.TermsConditionsFieldState.INVALID)
+                    }
                 }
                 dialog.dismiss()
             }
             .setPositiveButton(resources.getString(R.string.terms_and_conditions_dialog_accept_button)) { dialog, _ ->
                 binding.termsAndConditionsCheckbox.isChecked = true
-                this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                    viewModel.validateTermsConditionsField(SignUpViewModel.TermsConditionsFieldState.VALID)
+                this@SignUpFragment.lifecycleScope.launch {
+                    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        viewModel.validateTermsConditionsField(SignUpViewModel.TermsConditionsFieldState.VALID)
+                    }
                 }
                 dialog.dismiss()
             }.show()
@@ -169,22 +202,27 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
 
     private fun signUpStateEventsHandler(binding: FragmentSignUpBinding) {
         binding.apply {
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.signUpEvents.collect { event ->
-                    when (event) {
-                        is SignUpViewModel.SignUpRequestEvent.SignUpRequestLoading -> makeGeneralProgressBarsVisible(
-                            this@apply
-                        )
-                        is SignUpViewModel.SignUpRequestEvent.SignUpRequestSuccessful -> {
-                            makeGeneralProgressBarsInvisible(this@apply)
-                            if (event.response.success) (activity as BaseActivity).loggedIn()
-                            else showSnackbar(resources.getString(R.string.uncategorized_error) + " LOG: ${event.response.message}")
-                        }
-                        is SignUpViewModel.SignUpRequestEvent.SignUpRequestError -> {
-                            makeGeneralProgressBarsInvisible(this@apply)
-                            showSnackbar(resources.getString(R.string.uncategorized_error) + " LOG: ${event.error.message}")
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.signUpEvents.collect { event ->
+                        when (event) {
+                            is SignUpViewModel.SignUpRequestEvent.SignUpRequestLoading -> makeGeneralProgressBarsVisible(
+                                this@apply
+                            )
+                            is SignUpViewModel.SignUpRequestEvent.SignUpRequestSuccessful -> {
+                                makeGeneralProgressBarsInvisible(this@apply)
+                                if (event.response.success) {
+                                    if (event.response.data != null)
+                                        (activity as BaseActivity).loggedIn(event.response.data.accessToken)
+                                    else showSnackbar(resources.getString(R.string.uncategorized_error))
+                                } else showSnackbar(resources.getString(R.string.uncategorized_error) + " LOG: ${event.response.message}")
+                            }
+                            is SignUpViewModel.SignUpRequestEvent.SignUpRequestError -> {
+                                makeGeneralProgressBarsInvisible(this@apply)
+                                showSnackbar(resources.getString(R.string.uncategorized_error) + " LOG: ${event.error.message}")
+                            }
+                        }.exhaustive
+                    }
                 }
             }
         }
@@ -193,221 +231,235 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up), NavigationInfoPr
     //region Field State
     private fun fieldsStateEventsHandler(binding: FragmentSignUpBinding) {
         binding.apply {
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.nameFieldStateEvents.collect { event ->
-                    when (event) {
-                        SignUpViewModel.NameFieldStatus.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.nameInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.NameFieldStatus.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.nameInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.nameFieldStateEvents.collect { event ->
+                        when (event) {
+                            SignUpViewModel.NameFieldStatus.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.nameInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.NameFieldStatus.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.nameInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.surnameFieldStateEvents.collect { event ->
-                    when (event) {
-                        SignUpViewModel.SurnameFieldState.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.surnameInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.SurnameFieldState.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.surnameInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.surnameFieldStateEvents.collect { event ->
+                        when (event) {
+                            SignUpViewModel.SurnameFieldState.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.surnameInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.SurnameFieldState.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.surnameInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.usernameFieldStateEvents.collect { event ->
-                    usernameCheckPB.visibility = View.GONE
-                    when (event) {
-                        SignUpViewModel.UsernameFieldState.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.usernameInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.UsernameFieldState.LOADING_NETWORK_REQUEST -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.usernameInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                            usernameCheckPB.visibility = View.VISIBLE
-                        }
-                        SignUpViewModel.UsernameFieldState.FAILED_NETWORK_REQUEST -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.usernameInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.uncategorized_error)
-                            )
-                            showSnackbar(resources.getString(R.string.uncategorized_error) + " CAUSE: Check network!")
-                        }
-                        SignUpViewModel.UsernameFieldState.INVALID_ALREADY_IN_USE -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.usernameInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.signUp_error_username_taken)
-                            )
-                        }
-                        SignUpViewModel.UsernameFieldState.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.usernameInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.usernameFieldStateEvents.collect { event ->
+                        usernameCheckPB.visibility = View.GONE
+                        when (event) {
+                            SignUpViewModel.UsernameFieldState.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.usernameInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.UsernameFieldState.LOADING_NETWORK_REQUEST -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.usernameInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                                usernameCheckPB.visibility = View.VISIBLE
+                            }
+                            SignUpViewModel.UsernameFieldState.FAILED_NETWORK_REQUEST -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.usernameInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.uncategorized_error)
+                                )
+                                showSnackbar(resources.getString(R.string.uncategorized_error) + " CAUSE: Check network!")
+                            }
+                            SignUpViewModel.UsernameFieldState.INVALID_ALREADY_IN_USE -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.usernameInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.signUp_error_username_taken)
+                                )
+                            }
+                            SignUpViewModel.UsernameFieldState.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.usernameInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.emailFieldStateEvents.collect { event ->
-                    emailCheckPB.visibility = View.GONE
-                    when (event) {
-                        SignUpViewModel.EmailFieldState.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.EmailFieldState.LOADING_NETWORK_REQUEST -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                            emailCheckPB.visibility = View.VISIBLE
-                        }
-                        SignUpViewModel.EmailFieldState.FAILED_NETWORK_REQUEST -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.uncategorized_error)
-                            )
-                            showSnackbar(resources.getString(R.string.uncategorized_error) + "CAUSE: Check network!")
-                        }
-                        SignUpViewModel.EmailFieldState.INVALID_FORMAT -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.signUp_error_email_format)
-                            )
-                        }
-                        SignUpViewModel.EmailFieldState.INVALID_ALREADY_IN_USE -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.signUp_error_email_taken)
-                            )
-                        }
-                        SignUpViewModel.EmailFieldState.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.emailInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.emailFieldStateEvents.collect { event ->
+                        emailCheckPB.visibility = View.GONE
+                        when (event) {
+                            SignUpViewModel.EmailFieldState.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.EmailFieldState.LOADING_NETWORK_REQUEST -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                                emailCheckPB.visibility = View.VISIBLE
+                            }
+                            SignUpViewModel.EmailFieldState.FAILED_NETWORK_REQUEST -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.uncategorized_error)
+                                )
+                                showSnackbar(resources.getString(R.string.uncategorized_error) + "CAUSE: Check network!")
+                            }
+                            SignUpViewModel.EmailFieldState.INVALID_FORMAT -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.error_email_format)
+                                )
+                            }
+                            SignUpViewModel.EmailFieldState.INVALID_ALREADY_IN_USE -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.signUp_error_email_taken)
+                                )
+                            }
+                            SignUpViewModel.EmailFieldState.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.emailInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.passwordFieldStateEvents.collect { event ->
-                    when (event) {
-                        SignUpViewModel.PasswordFieldState.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.passwordInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.PasswordFieldState.INVALID_TOO_SHORT -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.passwordInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.signUp_error_short_password)
-                            )
-                        }
-                        SignUpViewModel.PasswordFieldState.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.passwordInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.passwordFieldStateEvents.collect { event ->
+                        when (event) {
+                            SignUpViewModel.PasswordFieldState.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.passwordInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.PasswordFieldState.INVALID_TOO_SHORT -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.passwordInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.signUp_error_short_password)
+                                )
+                            }
+                            SignUpViewModel.PasswordFieldState.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.passwordInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.confirmPasswordFieldStateEvents.collect { event ->
-                    when (event) {
-                        SignUpViewModel.ConfirmPasswordFieldState.INITIAL -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.confirmPasswordInputLayout,
-                                AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
-                            )
-                        }
-                        SignUpViewModel.ConfirmPasswordFieldState.INVALID_PASSWORDS_DO_NOT_MATCH -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.confirmPasswordInputLayout,
-                                AccentStylableView.StateStyle.ERROR_STYLE_STATE,
-                                getString(R.string.signUp_error_passwords_do_not_match)
-                            )
-                        }
-                        SignUpViewModel.ConfirmPasswordFieldState.VALID -> {
-                            fieldStateChanger(
-                                binding,
-                                binding.confirmPasswordInputLayout,
-                                AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
-                            )
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.confirmPasswordFieldStateEvents.collect { event ->
+                        when (event) {
+                            SignUpViewModel.ConfirmPasswordFieldState.INITIAL -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.confirmPasswordInputLayout,
+                                    AccentStylableView.StateStyle.DEFAULT_STYLE_STATE
+                                )
+                            }
+                            SignUpViewModel.ConfirmPasswordFieldState.INVALID_PASSWORDS_DO_NOT_MATCH -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.confirmPasswordInputLayout,
+                                    AccentStylableView.StateStyle.ERROR_STYLE_STATE,
+                                    getString(R.string.signUp_error_passwords_do_not_match)
+                                )
+                            }
+                            SignUpViewModel.ConfirmPasswordFieldState.VALID -> {
+                                fieldStateChanger(
+                                    binding,
+                                    binding.confirmPasswordInputLayout,
+                                    AccentStylableView.StateStyle.SUCCESS_STYLE_STATE
+                                )
+                            }
+                        }.exhaustive
+                    }
                 }
             }
 
-            this@SignUpFragment.lifecycleScope.launchWhenStarted {
-                viewModel.termsConditionsFieldStateEvents.collect { event ->
-                    when (event) {
-                        SignUpViewModel.TermsConditionsFieldState.INITIAL -> {
-                            termsAndConditionsCheckbox.isErrorShown = false
-                        }
-                        SignUpViewModel.TermsConditionsFieldState.INVALID -> {
-                            termsAndConditionsCheckbox.isErrorShown = true
-                        }
-                        SignUpViewModel.TermsConditionsFieldState.VALID -> {
-                            termsAndConditionsCheckbox.isErrorShown = false
-                        }
-                    }.exhaustive
+            this@SignUpFragment.lifecycleScope.launch {
+                viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    viewModel.termsConditionsFieldStateEvents.collect { event ->
+                        when (event) {
+                            SignUpViewModel.TermsConditionsFieldState.INITIAL -> {
+                                termsAndConditionsCheckbox.isErrorShown = false
+                            }
+                            SignUpViewModel.TermsConditionsFieldState.INVALID -> {
+                                termsAndConditionsCheckbox.isErrorShown = true
+                            }
+                            SignUpViewModel.TermsConditionsFieldState.VALID -> {
+                                termsAndConditionsCheckbox.isErrorShown = false
+                            }
+                        }.exhaustive
+                    }
                 }
             }
         }

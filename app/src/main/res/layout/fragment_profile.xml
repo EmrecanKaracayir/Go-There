@@ -7,13 +7,50 @@
     android:background="?attr/GT_compBase"
     tools:context=".features.root_postlog.profile.branch_profile.ui.ProfileFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader
+        android:id="@+id/exploreFragmentHeroLayout_FITS_TOP"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/accent_gradient"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Profile Fragment" />
+        android:paddingBottom="@dimen/sectionSpacingSys">
+
+        <TextView
+            android:layout_marginTop="@dimen/headLineSpacingSys"
+            android:id="@+id/headline"
+            android:textAppearance="@style/GT_Typography.ExtraBold.Large.Headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="?GT_basicHcPrimary"
+            android:text="@string/profile" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:textAppearance="@style/GT_Typography.SemiBold.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/headline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="?GT_basicHcSecondary"
+            android:text="@string/under_development" />
+
+        <com.sep.gothere.component.dynamic.impl.button.GTButtonGray
+            android:id="@+id/logOutButton"
+            android:layout_marginTop="@dimen/sectionSpacingSys"
+            style="@style/GT_Button.Default"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/spacing1XL"
+            android:text="@string/log_out"
+            app:layout_constraintTop_toBottomOf="@+id/subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </com.sep.gothere.component.dynamic.impl.layout.GTLayoutAccentHeader>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

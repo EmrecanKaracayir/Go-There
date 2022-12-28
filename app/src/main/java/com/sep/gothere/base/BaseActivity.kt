@@ -17,16 +17,27 @@ import androidx.core.view.WindowCompat
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import com.google.android.material.color.MaterialColors
-import com.sep.gothere.current.UserCredentials.Companion.DEBUG_USER_LOGGED_IN
+import com.sep.gothere.current.ACCESS_TOKEN
+import com.sep.gothere.data.LocalUserPreferencesRepository
+import com.sep.gothere.data.NetworkUserRepository
 import com.sep.gothere.databinding.ActivityBaseBinding
 import com.sep.gothere.navigation.*
 import com.sep.gothere.util.CustomFitsSystemUI
+import com.sep.gothere.util.SHORT_ANIMATION_DURATION_MS
 import com.sep.gothere.util.exhaustive
 import dagger.hilt.android.AndroidEntryPoint
-
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class BaseActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var localUserPreferencesRepository: LocalUserPreferencesRepository
+
+    @Inject
+    lateinit var networkUserRepository: NetworkUserRepository
+
     private lateinit var binding: ActivityBaseBinding
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -48,19 +59,34 @@ class BaseActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) {
             loadSession(supportFragmentManager)
-            if (DEBUG_USER_LOGGED_IN) {
-                updateNavbar(binding)
-                bringNavbar()
-            }
+            when (getCurrentRoot(supportFragmentManager)) {
+                NavigationInfoProvider.NavigationRoot.ROOT_PRELOG -> {}
+                NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG -> {
+                    updateNavbar(binding)
+                    bringNavbar()
+                }
+            }.exhaustive
         } else {
-            if (DEBUG_USER_LOGGED_IN) {
-                loggedIn()
+            val cachedToken = runBlocking { localUserPreferencesRepository.getCachedTokenRP() }
+            if (cachedToken != null) {
+                runBlocking {
+                    networkUserRepository.meRP(
+                        cachedToken,
+                        onFetchLoading = {},
+                        onFetchFailed = {
+                            navigateToRoot(
+                                supportFragmentManager,
+                                NavigationInfoProvider.NavigationRoot.ROOT_PRELOG
+                            )
+                        },
+                        onFetchSuccess = { loggedIn(cachedToken) }
+                    )
+                }
             } else {
                 navigateToRoot(
                     supportFragmentManager,
                     NavigationInfoProvider.NavigationRoot.ROOT_PRELOG
                 )
-                binding.baseLayout.postDelayed({ loggedIn() }, 5000)
             }
         }
 
@@ -121,21 +147,24 @@ class BaseActivity : AppCompatActivity() {
         }.exhaustive
     }
 
-    fun loggedIn() {
-        DEBUG_USER_LOGGED_IN = true
+    fun loggedIn(token: String) {
+        runBlocking { localUserPreferencesRepository.updateCachedTokenRP(token) }
+        ACCESS_TOKEN = token
         navigateToRoot(supportFragmentManager, NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG)
         updateNavbar(binding)
         bringNavbar()
     }
 
-    /*
     fun loggedOut() {
+        runBlocking { localUserPreferencesRepository.deleteCachedTokenRP() }
         navigateToRoot(supportFragmentManager, NavigationInfoProvider.NavigationRoot.ROOT_PRELOG)
         hideNavbar()
     }
-    */
+
+    private var isNavbarShown = false
 
     private fun bringNavbar() {
+        isNavbarShown = true
         val constraintSet = ConstraintSet()
         constraintSet.clone(binding.baseLayout)
         constraintSet.clear(binding.navbarContainerFITSBOTTOM.id, ConstraintSet.TOP)
@@ -147,13 +176,13 @@ class BaseActivity : AppCompatActivity() {
         )
         val transition = ChangeBounds()
         transition.interpolator = DecelerateInterpolator()
-        transition.duration = 300
+        transition.duration = SHORT_ANIMATION_DURATION_MS.toLong()
         TransitionManager.beginDelayedTransition(binding.baseLayout, transition)
         constraintSet.applyTo(binding.baseLayout)
     }
 
-    /*
-    private fun hideNavbar() {
+    fun hideNavbar() {
+        isNavbarShown = false
         val constraintSet = ConstraintSet()
         constraintSet.clone(binding.baseLayout)
         constraintSet.clear(binding.navbarContainerFITSBOTTOM.id, ConstraintSet.BOTTOM)
@@ -165,18 +194,22 @@ class BaseActivity : AppCompatActivity() {
         )
         val transition = ChangeBounds()
         transition.interpolator = DecelerateInterpolator()
-        transition.duration = 300
+        transition.duration = SHORT_ANIMATION_DURATION_MS.toLong()
         TransitionManager.beginDelayedTransition(binding.baseLayout, transition)
         constraintSet.applyTo(binding.baseLayout)
     }
-     */
 
     fun navigateBackRequested() {
+        if (getCurrentRoot(supportFragmentManager) == NavigationInfoProvider.NavigationRoot.ROOT_POSTLOG && !isNavbarShown) bringNavbar()
         navigateToPrevious(supportFragmentManager)
     }
 
     fun fragmentRequested(navigationTag: NavigationInfoProvider.NavigationTag, animate: Boolean) {
         navigateToTag(supportFragmentManager, navigationTag, animate)
+    }
+
+    fun fragmentWithBundleRequested(bundle: Bundle, navigationTag: NavigationInfoProvider.NavigationTag, animate: Boolean) {
+        navigateToTagWithBundle(supportFragmentManager, bundle, navigationTag, animate)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {

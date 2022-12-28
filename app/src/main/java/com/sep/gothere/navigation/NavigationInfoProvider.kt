@@ -25,12 +25,16 @@ interface NavigationInfoProvider {
         BRANCH_BUSINESS(NavigationRoot.ROOT_POSTLOG)
     }
 
-    enum class NavigationTag(val branch: NavigationBranch) {
-        TAG_WELCOME_FRAGMENT(NavigationBranch.BRANCH_WELCOME),
-        TAG_SIGN_UP_FRAGMENT(NavigationBranch.BRANCH_WELCOME),
-        TAG_EXPLORE_FRAGMENT(NavigationBranch.BRANCH_EXPLORE),
-        TAG_SEARCH_FRAGMENT(NavigationBranch.BRANCH_SEARCH),
-        TAG_PROFILE_FRAGMENT(NavigationBranch.BRANCH_PROFILE),
-        TAG_BUSINESS_FRAGMENT(NavigationBranch.BRANCH_BUSINESS)
+    enum class NavigationTag {
+        TAG_WELCOME_FRAGMENT,
+        TAG_SIGN_UP_FRAGMENT,
+        TAG_EXPLORE_FRAGMENT,
+        TAG_SEARCH_FRAGMENT,
+        TAG_PROFILE_FRAGMENT,
+        TAG_BUSINESS_FRAGMENT,
+        TAG_BUSINESS_PUT_FRAGMENT,
+        TAG_BUSINESS_PROFILE_FRAGMENT_BUSINESS,
+        TAG_BUSINESS_PROFILE_FRAGMENT_EXPLORE,
+        TAG_BUSINESS_PROFILE_FRAGMENT_SEARCH,
     }
 }

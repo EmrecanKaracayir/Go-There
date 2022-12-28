@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sep.gothere.api.model.login.request.LoginRequest
 import com.sep.gothere.api.model.login.response.LoginResponse
-import com.sep.gothere.data.UserRepository
+import com.sep.gothere.data.NetworkUserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -16,14 +16,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-    private val userRepository: UserRepository
+    private val networkUserRepository: NetworkUserRepository
 ) : ViewModel() {
     private val eventChannel = Channel<Event>()
     val events = eventChannel.receiveAsFlow()
 
     private suspend fun userLoginVM(
         loginRequest: LoginRequest
-    ) = userRepository.userLoginRP(
+    ) = networkUserRepository.userLoginRP(
         loginRequest,
         onFetchLoading = {
             viewModelScope.launch {

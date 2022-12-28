@@ -9,7 +9,7 @@ import com.sep.gothere.util.CommonColorUtils
 import kotlin.math.abs
 import kotlin.math.pow
 
-class Contraster() {
+class Contraster {
     companion object {
         private val commonColorUtils = CommonColorUtils()
 
